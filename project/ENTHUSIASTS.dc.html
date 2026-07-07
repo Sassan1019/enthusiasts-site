@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ENTHUSIASTS — 人生の主人公を増やすプロデュース共同体</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700;800&amp;family=Zen+Kaku+Gothic+New:wght@300;400;500;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: #121014; color: #ECE9E4; -webkit-font-smoothing: antialiased; }
+    ::selection { background: #C04E2B; color: #121014; }
+    @keyframes heroRise { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes pulseDot { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+  </style>
+</helmet>
+
+<div style="font-family:'Zen Kaku Gothic New',sans-serif; background:#121014; color:#ECE9E4; overflow-x:hidden; position:relative">
+
+  <!-- grain -->
+  <sc-if value="{{ grainOn }}" hint-placeholder-val="{{ true }}">
+    <div style="position:fixed; inset:0; z-index:60; pointer-events:none; opacity:0.05; background-image:url('data:image/svg+xml;utf8,&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;160&quot; height=&quot;160&quot;&gt;&lt;filter id=&quot;n&quot;&gt;&lt;feTurbulence type=&quot;fractalNoise&quot; baseFrequency=&quot;0.9&quot; numOctaves=&quot;2&quot;/&gt;&lt;/filter&gt;&lt;rect width=&quot;160&quot; height=&quot;160&quot; filter=&quot;url(%23n)&quot;/&gt;&lt;/svg&gt;')"></div>
+  </sc-if>
+
+  <!-- fixed vertical label -->
+  <div style="position:fixed; right:20px; bottom:88px; z-index:50; writing-mode:vertical-rl; font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.42em; color:rgba(236,233,228,0.28); pointer-events:none">PRODUCE&nbsp;HUB&nbsp;FOR&nbsp;HUMAN&nbsp;POTENTIAL</div>
+
+  <!-- header -->
+  <header style="position:fixed; top:0; left:0; right:0; z-index:55; display:flex; align-items:center; justify-content:space-between; padding:22px 4.5vw; background:linear-gradient(to bottom, rgba(18,16,20,0.85), rgba(18,16,20,0)); backdrop-filter:blur(2px)">
+    <a href="#top" style="font-family:'IBM Plex Mono',monospace; font-size:13px; letter-spacing:0.34em; color:#ECE9E4; text-decoration:none; font-weight:500">ENTHUSIASTS</a>
+    <nav style="display:flex; gap:34px; align-items:center">
+      <a href="#about" style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.24em; color:rgba(236,233,228,0.55); text-decoration:none" style-hover="color:#ECE9E4">ABOUT</a>
+      <a href="#projects" style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.24em; color:rgba(236,233,228,0.55); text-decoration:none" style-hover="color:#ECE9E4">PROJECTS</a>
+      <a href="#join" style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.24em; color:#ECE9E4; text-decoration:none; border:1px solid rgba(236,233,228,0.35); padding:9px 18px" style-hover="border-color:#C04E2B; color:#C04E2B">JOIN</a>
+    </nav>
+  </header>
+
+  <!-- ============ 01 HERO ============ -->
+  <section id="top" data-screen-label="01 HERO" style="min-height:100vh; display:flex; flex-direction:column; justify-content:flex-end; padding:120px 6vw 11vh; box-sizing:border-box; position:relative; background:radial-gradient(1100px 480px at 50% 108%, rgba(192,78,43,0.13), rgba(18,16,20,0) 70%)">
+    <div style="display:flex; align-items:center; gap:14px; animation:heroRise 1.1s cubic-bezier(0.19,1,0.22,1) 0.1s both">
+      <span style="width:7px; height:7px; border-radius:50%; background:#C04E2B; animation:pulseDot 3.2s ease-in-out infinite"></span>
+      <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.34em; color:rgba(236,233,228,0.55)">PRODUCE HUB FOR HUMAN POTENTIAL</span>
+    </div>
+    <sc-if value="{{ heroProtagonist }}" hint-placeholder-val="{{ true }}">
+      <h1 style="font-family:'Shippori Mincho',serif; font-weight:700; font-size:clamp(46px,8.2vw,124px); line-height:1.28; letter-spacing:0.02em; margin:28px 0 0; color:#ECE9E4; animation:heroRise 1.2s cubic-bezier(0.19,1,0.22,1) 0.25s both">人生の主人公を、<br>増やす。</h1>
+    </sc-if>
+    <sc-if value="{{ heroSolitude }}" hint-placeholder-val="{{ false }}">
+      <h1 style="font-family:'Shippori Mincho',serif; font-weight:700; font-size:clamp(46px,8.2vw,124px); line-height:1.28; letter-spacing:0.02em; margin:28px 0 0; color:#ECE9E4; animation:heroRise 1.2s cubic-bezier(0.19,1,0.22,1) 0.25s both">才能を、<br>孤独にしない。</h1>
+    </sc-if>
+    <div style="display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:40px; margin-top:52px; animation:heroRise 1.2s cubic-bezier(0.19,1,0.22,1) 0.45s both">
+      <p style="max-width:560px; margin:0; font-size:14.5px; font-weight:400; line-height:2.3; color:rgba(236,233,228,0.68)">ENTHUSIASTSは、きっかけの格差によって埋もれてしまう才能を、仲間・戦略・ブランド・資本・コミュニティの力で社会に実装するプロデュース・ハブです。人は、環境と仲間があれば変われる。私たちは、利他の意志を持つ人の可能性を信じ、その人にしかできない挑戦を社会へ届けます。</p>
+      <div style="display:flex; gap:16px">
+        <a href="#about" style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.22em; color:#ECE9E4; text-decoration:none; border:1px solid rgba(236,233,228,0.35); padding:15px 26px" style-hover="border-color:#ECE9E4; background:rgba(236,233,228,0.06)">ABOUT ENTHUSIASTS</a>
+        <a href="#join" style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.22em; color:#121014; text-decoration:none; background:#ECE9E4; border:1px solid #ECE9E4; padding:15px 26px" style-hover="background:#C04E2B; border-color:#C04E2B; color:#121014">JOIN THE COLLECTIVE</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 02 WHAT IS ============ -->
+  <section id="about" data-screen-label="02 WHAT IS ENTHUSIASTS" style="border-top:1px solid rgba(236,233,228,0.1); padding:150px 6vw">
+    <div style="max-width:1240px; margin:0 auto; display:flex; flex-wrap:wrap; gap:64px">
+      <div style="flex:0 0 200px" data-reveal>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.28em; color:rgba(236,233,228,0.4)">02</div>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.28em; color:rgba(236,233,228,0.4); margin-top:8px">WHAT IS<br>ENTHUSIASTS</div>
+      </div>
+      <div style="flex:1 1 520px; min-width:300px">
+        <h2 data-reveal style="font-family:'Shippori Mincho',serif; font-weight:600; font-size:clamp(30px,3.4vw,46px); line-height:1.6; margin:0 0 56px; color:#ECE9E4">人生には、<br>運の要素が大きすぎる。</h2>
+        <div data-reveal style="font-family:'Shippori Mincho',serif; font-weight:500; font-size:clamp(17px,1.5vw,20px); line-height:2.5; color:#D8D4CC; margin-bottom:56px">
+          生まれた場所。<br>出会った大人。<br>教育環境。文化資本。<br>資金。人脈。情報。<br>挑戦できる場所。<br>そして、自分を信じてくれる人の存在。
+        </div>
+        <div data-reveal style="font-size:15px; font-weight:400; line-height:2.4; color:rgba(236,233,228,0.62); max-width:620px">
+          <p style="margin:0 0 2em">これらの多くは、自分の意志だけでは選べません。地方に生まれた子と、都市部に生まれた子。優れた指導者に出会えた人と、出会えなかった人。挑戦を応援される人と、挑戦する前に否定される人。この差は、才能そのものの差ではありません。<span style="color:#ECE9E4">きっかけの差</span>です。</p>
+          <p style="margin:0 0 2em">ENTHUSIASTSは、この「きっかけの格差」によって埋もれてしまう才能をなくすために存在します。私たちは、人は変われると信じています。変わろうとする人に、仲間と環境と機会があれば、人生はもう一度動き出す。</p>
+          <p style="margin:0; color:#D8D4CC">ENTHUSIASTSは、人の可能性を信じ抜き、その人にしかできない挑戦を社会に実装するプロデュース共同体です。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 03 PROBLEM ============ -->
+  <section id="problem" data-screen-label="03 PROBLEM" style="border-top:1px solid rgba(236,233,228,0.1); padding:150px 6vw">
+    <div style="max-width:1240px; margin:0 auto; display:flex; flex-wrap:wrap; gap:64px">
+      <div style="flex:0 0 200px" data-reveal>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.28em; color:rgba(236,233,228,0.4)">03</div>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.28em; color:rgba(236,233,228,0.4); margin-top:8px">CORE<br>PROBLEM</div>
+      </div>
+      <div style="flex:1 1 520px; min-width:300px">
+        <h2 data-reveal style="font-family:'Shippori Mincho',serif; font-weight:600; font-size:clamp(30px,3.6vw,50px); line-height:1.7; margin:0 0 56px; color:#ECE9E4">才能がないのではなく、<br>才能が<span style="color:#C04E2B">発見されない</span>。</h2>
+        <div data-reveal style="font-size:15px; font-weight:400; line-height:2.4; color:rgba(236,233,228,0.62); max-width:620px; margin-bottom:64px">
+          <p style="margin:0">本来なら輝けたかもしれない人が、きっかけに出会えないまま埋もれていく。本来なら誰かの希望になれたかもしれない人が、自分の可能性を信じられないまま人生を進めていく。本来なら社会を変えられたかもしれない意志が、環境や資本や仲間の不足によって止まってしまう。問題は、才能がないことではありません。</p>
+        </div>
+        <div data-reveal style="border-left:1px solid rgba(192,78,43,0.6); padding-left:36px; font-family:'Shippori Mincho',serif; font-weight:500; font-size:clamp(17px,1.5vw,20px); line-height:2.5; color:#D8D4CC">
+          発見されないこと。<br>信じられないこと。<br>磨かれないこと。<br>社会に接続されないこと。<br>そして、孤独のまま終わってしまうこと。
+        </div>
+        <p data-reveal style="margin:56px 0 0; font-size:15px; line-height:2.4; color:#D8D4CC">ENTHUSIASTSは、この構造を変えるために存在します。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 04 VISION / 05 MISSION ============ -->
+  <section id="vision" data-screen-label="04 VISION" style="border-top:1px solid rgba(236,233,228,0.1); padding:150px 6vw">
+    <div style="max-width:1240px; margin:0 auto; display:flex; flex-wrap:wrap; gap:64px">
+      <div style="flex:0 0 200px" data-reveal>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.28em; color:rgba(236,233,228,0.4)">04</div>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.28em; color:rgba(236,233,228,0.4); margin-top:8px">VISION</div>
+      </div>
+      <div style="flex:1 1 520px; min-width:300px">
+        <h2 data-reveal style="font-family:'Shippori Mincho',serif; font-weight:600; font-size:clamp(30px,3.6vw,50px); line-height:1.7; margin:0 0 56px; color:#ECE9E4">才能の機会損失を、<br>ゼロにする。</h2>
+        <div style="display:flex; flex-wrap:wrap; gap:56px">
+          <div data-reveal style="flex:1 1 280px; min-width:260px">
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.28em; color:#C04E2B; margin-bottom:24px">TALENT — 才能とは</div>
+            <p style="margin:0; font-size:15px; line-height:2.4; color:rgba(236,233,228,0.62)">生まれ持った特殊能力だけではありません。努力を努力と感じずに続けられること。人よりも自然にやってしまうこと。その人らしく生きるためのピース。人生を前に進める原動力。それらすべてを、私たちは才能と捉えます。</p>
+          </div>
+          <div data-reveal style="flex:1 1 280px; min-width:260px">
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.28em; color:#C04E2B; margin-bottom:24px">OPPORTUNITY — 機会とは</div>
+            <p style="margin:0; font-size:15px; line-height:2.4; color:rgba(236,233,228,0.62)">教育や資金だけではありません。仲間。居場所。挑戦の場。表現の場。信じてくれる人との出会い。社会と接続されるきっかけ。自分の可能性に気づける瞬間。</p>
+          </div>
+        </div>
+        <p data-reveal style="margin:64px 0 0; font-family:'Shippori Mincho',serif; font-weight:500; font-size:clamp(17px,1.5vw,20px); line-height:2.3; color:#D8D4CC; max-width:640px">きっかけの格差によって失われる才能をなくし、一人ひとりが自分の人生の主人公として生きられる社会を目指します。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="mission" data-screen-label="05 MISSION" style="border-top:1px solid rgba(236,233,228,0.1); background:#17141A; padding:170px 6vw">
+    <div style="max-width:1240px; margin:0 auto">
+      <div data-reveal style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.28em; color:rgba(236,233,228,0.4); margin-bottom:64px">05&nbsp;&nbsp;MISSION — 果たす使命</div>
+      <h2 data-reveal style="font-family:'Shippori Mincho',serif; font-weight:700; font-size:clamp(34px,5vw,74px); line-height:1.75; margin:0; color:#ECE9E4; text-align:center">
+        <span style="color:rgba(236,233,228,0.38); text-decoration:line-through; text-decoration-color:rgba(192,78,43,0.7); text-decoration-thickness:2px">「お前じゃ無理」</span>を、<br>
+        「お前じゃ<span style="color:#C04E2B">なきゃ</span>無理」に変える。
+      </h2>
+      <div data-reveal style="max-width:640px; margin:88px auto 0; font-size:15px; line-height:2.4; color:rgba(236,233,228,0.62)">
+        <p style="margin:0 0 2em">お前じゃ無理。現実を見ろ。そんなことできるわけがない。——世の中には、挑戦する前から否定される人がいます。しかし、その人の背景、原体験、痛み、怒り、祈り、衝動、願いを深く見れば、むしろその人だからこそやるべき挑戦があります。</p>
+        <p style="margin:0 0 2em">ENTHUSIASTSは、その可能性を見抜き、信じ、形にします。ただ応援するだけではありません。ただ伴走するだけでもありません。人生の奥にある物語を掘り起こし、社会に届く言葉へ変換し、ブランドとして設計し、仲間を集め、事業として成立させ、文化として残していく。</p>
+        <p style="margin:0; font-family:'Shippori Mincho',serif; font-size:18px; line-height:2.3; color:#D8D4CC">その結果として、こう言われる状態をつくる。<br>——やっぱり、あなたじゃなきゃ無理だった。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 06 WHAT WE PRODUCE / 07 FOR WHOM ============ -->
+  <section id="produce" data-screen-label="06 WHAT WE PRODUCE" style="border-top:1px solid rgba(236,233,228,0.1); padding:150px 6vw">
+    <div style="max-width:1240px; margin:0 auto; display:flex; flex-wrap:wrap; gap:64px">
+      <div style="flex:0 0 200px" data-reveal>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.28em; color:rgba(236,233,228,0.4)">06</div>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.28em; color:rgba(236,233,228,0.4); margin-top:8px">WHAT WE<br>PRODUCE</div>
+      </div>
+      <div style="flex:1 1 520px; min-width:300px">
+        <h2 data-reveal style="font-family:'Shippori Mincho',serif; font-weight:600; font-size:clamp(30px,3.4vw,46px); line-height:1.7; margin:0 0 56px; color:#ECE9E4">ブランドではなく、<br>人の可能性をプロデュースする。</h2>
+        <div data-reveal style="display:flex; flex-wrap:wrap; gap:2px 48px; font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.2em; color:rgba(236,233,228,0.5); margin-bottom:56px">
+          <span>ブランドは、結果。</span><span>事業は、手段。</span><span>コミュニティは、土壌。</span>
+        </div>
+        <div data-reveal style="font-size:15px; line-height:2.4; color:rgba(236,233,228,0.62); max-width:620px">
+          <p style="margin:0 0 2em">私たちが本当にプロデュースするのは、人の可能性です。その人がなぜ生きてきたのか。何に傷ついたのか。何に怒っているのか。何を祈っているのか。誰の希望になりたいのか。何を社会に届けたいのか。——そこからブランドが生まれます。</p>
+          <p style="margin:0; color:#D8D4CC">ひとりの原体験や願いを、社会に届く形へ変換する。その人の人生という物語を、社会実装可能なプロジェクトへと設計する。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="for-whom" data-screen-label="07 FOR WHOM" style="border-top:1px solid rgba(236,233,228,0.1); padding:150px 6vw">
+    <div style="max-width:1240px; margin:0 auto; display:flex; flex-wrap:wrap; gap:64px">
+      <div style="flex:0 0 200px" data-reveal>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.28em; color:rgba(236,233,228,0.4)">07</div>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.28em; color:rgba(236,233,228,0.4); margin-top:8px">FOR WHOM</div>
+      </div>
+      <div style="flex:1 1 520px; min-width:300px">
+        <h2 data-reveal style="font-family:'Shippori Mincho',serif; font-weight:600; font-size:clamp(30px,3.4vw,46px); line-height:1.7; margin:0 0 56px; color:#ECE9E4">利他の意志を持つ人の可能性に、<br>バフをかける。</h2>
+        <p data-reveal style="margin:0 0 56px; font-size:15px; line-height:2.4; color:rgba(236,233,228,0.62); max-width:620px">ENTHUSIASTSは、すべての人を無条件に支援する組織ではありません。私たちが信じ、共に挑戦したいのは、利他の意志を持つ人です。</p>
+        <div data-reveal style="font-family:'Shippori Mincho',serif; font-weight:500; font-size:clamp(17px,1.5vw,20px); line-height:2.5; color:#D8D4CC; margin-bottom:56px">
+          世の中のために、どうしてもやりたいことがある人。<br>誰かの希望になりたい人。<br>自分の痛みを、誰かの価値に変えたい人。<br>社会を良くしたいという願いを持つ人。<br>主人公マインドを持っている人。
+        </div>
+        <p data-reveal style="margin:0; font-size:15px; line-height:2.4; color:rgba(236,233,228,0.62); max-width:620px">でも、ひとりでは届かない。仲間が足りない。戦略が足りない。資本が足りない。ブランドがない。社会との接続点がない。<span style="color:#D8D4CC">——ENTHUSIASTSは、そういう人の才能にバフをかけます。</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 08 PROJECTS ============ -->
+  <section id="projects" data-screen-label="08 PROJECTS" style="border-top:1px solid rgba(236,233,228,0.1); background:#17141A; padding:150px 6vw">
+    <div style="max-width:1240px; margin:0 auto">
+      <div data-reveal style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.28em; color:rgba(236,233,228,0.4); margin-bottom:28px">08&nbsp;&nbsp;PROJECTS</div>
+      <h2 data-reveal style="font-family:'Shippori Mincho',serif; font-weight:600; font-size:clamp(30px,3.4vw,46px); line-height:1.6; margin:0 0 24px; color:#ECE9E4">自己実現の実験領域</h2>
+      <p data-reveal style="margin:0 0 96px; font-size:15px; line-height:2.4; color:rgba(236,233,228,0.62); max-width:620px">抽象的なビジョンは、具体的なプロジェクトで実装される。それぞれのプロジェクトは、それぞれの「問い」に挑んでいます。</p>
+
+      <sc-for list="{{ projects }}" as="p" hint-placeholder-count="3">
+        <div data-reveal style="border-top:1px solid rgba(236,233,228,0.12); padding:72px 0; display:flex; flex-wrap:wrap; gap:40px 72px; align-items:flex-start">
+          <div style="flex:0 0 340px; min-width:260px">
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.26em; color:#C04E2B; margin-bottom:20px">{{ p.label }}</div>
+            <div style="font-family:'IBM Plex Mono',monospace; font-weight:500; font-size:clamp(34px,3.6vw,52px); letter-spacing:0.04em; color:#ECE9E4">{{ p.name }}</div>
+            <div style="font-family:'Shippori Mincho',serif; font-size:15px; color:rgba(236,233,228,0.5); margin-top:14px">{{ p.jp }}</div>
+          </div>
+          <div style="flex:1 1 420px; min-width:280px">
+            <p style="margin:0 0 40px; font-size:15px; line-height:2.4; color:rgba(236,233,228,0.62); max-width:600px">{{ p.body }}</p>
+            <div style="border-left:1px solid rgba(192,78,43,0.6); padding-left:28px">
+              <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.3em; color:rgba(236,233,228,0.4); margin-bottom:12px">QUESTION — 挑む問い</div>
+              <p style="margin:0; font-family:'Shippori Mincho',serif; font-weight:500; font-size:clamp(16px,1.4vw,19px); line-height:2.1; color:#D8D4CC">{{ p.question }}</p>
+            </div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- ============ 09 SYSTEM ============ -->
+  <section id="system" data-screen-label="09 SYSTEM" style="border-top:1px solid rgba(236,233,228,0.1); padding:150px 6vw">
+    <div style="max-width:1240px; margin:0 auto; display:flex; flex-wrap:wrap; gap:64px">
+      <div style="flex:0 0 200px" data-reveal>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.28em; color:rgba(236,233,228,0.4)">09</div>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.28em; color:rgba(236,233,228,0.4); margin-top:8px">SYSTEM</div>
+      </div>
+      <div style="flex:1 1 520px; min-width:300px">
+        <h2 data-reveal style="font-family:'Shippori Mincho',serif; font-weight:600; font-size:clamp(30px,3.4vw,46px); line-height:1.7; margin:0 0 56px; color:#ECE9E4">親会社ではなく、<br>プロデュース・ハブ。</h2>
+        <p data-reveal style="margin:0 0 64px; font-size:15px; line-height:2.4; color:rgba(236,233,228,0.62); max-width:620px">ENTHUSIASTSは、子会社を所有し管理する組織ではありません。各プロジェクトには、それぞれのリーダーがいます。各リーダーが、自分の物語と旗を持って進む。ENTHUSIASTSはその中心で、思想、戦略、資本、人、文化、ネットワークをつなぐ。普段はそれぞれ独立して進み、必要なときは連合する。</p>
+        <div data-reveal style="display:flex; flex-direction:column; gap:0; max-width:620px">
+          <div style="display:flex; align-items:baseline; gap:24px; padding:26px 0; border-top:1px solid rgba(236,233,228,0.12)">
+            <span style="font-family:'Shippori Mincho',serif; font-size:18px; color:rgba(236,233,228,0.42); flex:1">上下関係</span>
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#C04E2B; letter-spacing:0.2em">→</span>
+            <span style="font-family:'Shippori Mincho',serif; font-size:18px; color:#ECE9E4; flex:1; text-align:right">役割の違い</span>
+          </div>
+          <div style="display:flex; align-items:baseline; gap:24px; padding:26px 0; border-top:1px solid rgba(236,233,228,0.12)">
+            <span style="font-family:'Shippori Mincho',serif; font-size:18px; color:rgba(236,233,228,0.42); flex:1">支配</span>
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#C04E2B; letter-spacing:0.2em">→</span>
+            <span style="font-family:'Shippori Mincho',serif; font-size:18px; color:#ECE9E4; flex:1; text-align:right">共創</span>
+          </div>
+          <div style="display:flex; align-items:baseline; gap:24px; padding:26px 0; border-top:1px solid rgba(236,233,228,0.12); border-bottom:1px solid rgba(236,233,228,0.12)">
+            <span style="font-family:'Shippori Mincho',serif; font-size:18px; color:rgba(236,233,228,0.42); flex:1">管理</span>
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#C04E2B; letter-spacing:0.2em">→</span>
+            <span style="font-family:'Shippori Mincho',serif; font-size:18px; color:#ECE9E4; flex:1; text-align:right">プロデュース</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 10 SEVEN BRANDS ============ -->
+  <section id="seven" data-screen-label="10 SEVEN BRANDS" style="border-top:1px solid rgba(236,233,228,0.1); padding:170px 6vw; text-align:center">
+    <div style="max-width:820px; margin:0 auto">
+      <div data-reveal style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.28em; color:rgba(236,233,228,0.4); margin-bottom:64px">10&nbsp;&nbsp;SEVEN BRANDS — 7つの存在</div>
+      <div data-reveal style="display:flex; justify-content:center; align-items:center; gap:26px; margin-bottom:64px">
+        <span style="width:9px; height:9px; border-radius:50%; border:1px solid rgba(236,233,228,0.45)"></span>
+        <span style="width:9px; height:9px; border-radius:50%; border:1px solid rgba(236,233,228,0.45)"></span>
+        <span style="width:9px; height:9px; border-radius:50%; border:1px solid rgba(236,233,228,0.45)"></span>
+        <span style="width:13px; height:13px; border-radius:50%; background:#C04E2B"></span>
+        <span style="width:9px; height:9px; border-radius:50%; border:1px solid rgba(236,233,228,0.45)"></span>
+        <span style="width:9px; height:9px; border-radius:50%; border:1px solid rgba(236,233,228,0.45)"></span>
+        <span style="width:9px; height:9px; border-radius:50%; border:1px solid rgba(236,233,228,0.45)"></span>
+      </div>
+      <h2 data-reveal style="font-family:'Shippori Mincho',serif; font-weight:700; font-size:clamp(32px,4.4vw,60px); line-height:1.6; margin:0 0 64px; color:#ECE9E4">ENTHUSIASTS + 6 Brands.</h2>
+      <div data-reveal style="font-size:15px; line-height:2.4; color:rgba(236,233,228,0.62); text-align:left; max-width:620px; margin:0 auto">
+        <p style="margin:0 0 2em">ENTHUSIASTSは、無限にブランドを増やしません。中心にENTHUSIASTS。周囲に6つのブランド。合計7つの存在。この構造は、単なる数字の美しさではなく、経営哲学です。</p>
+        <div style="display:flex; flex-wrap:wrap; gap:2px 48px; font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.2em; color:rgba(236,233,228,0.5); margin-bottom:2em; justify-content:center">
+          <span>量より、質。</span><span>拡大より、深化。</span><span>事業より、文化。</span>
+        </div>
+        <p style="margin:0; color:#D8D4CC">生涯で6つのブランドだけを、人生を支える存在になるまで磨き続ける。その6つを、100年続く文化にすることを目指します。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 11 CORE COMMUNITY ============ -->
+  <section id="community" data-screen-label="11 CORE COMMUNITY" style="border-top:1px solid rgba(236,233,228,0.1); padding:150px 6vw">
+    <div style="max-width:1240px; margin:0 auto; display:flex; flex-wrap:wrap; gap:64px; align-items:flex-start">
+      <div style="flex:0 0 200px" data-reveal>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.28em; color:rgba(236,233,228,0.4)">11</div>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.28em; color:rgba(236,233,228,0.4); margin-top:8px">CORE<br>COMMUNITY</div>
+        <div data-reveal style="font-family:'Shippori Mincho',serif; font-weight:700; font-size:clamp(64px,7vw,110px); line-height:1; color:rgba(236,233,228,0.16); margin-top:48px">151</div>
+      </div>
+      <div style="flex:1 1 520px; min-width:300px">
+        <h2 data-reveal style="font-family:'Shippori Mincho',serif; font-weight:600; font-size:clamp(28px,3.2vw,44px); line-height:1.75; margin:0 0 56px; color:#ECE9E4">外に思想を開き、<br>内に濃い実装者集団をつくる。</h2>
+        <div data-reveal style="font-size:15px; line-height:2.4; color:rgba(236,233,228,0.62); max-width:620px">
+          <p style="margin:0 0 2em">外向きには、大きな思想で共感の輪を広げる。才能の機会損失をゼロにする。人生の主人公を増やす。「お前じゃ無理」を「お前じゃなきゃ無理」に変える。——この思想に共感する人を増やしていきます。</p>
+          <p style="margin:0 0 2em">ただし、中核は無限に広げません。ENTHUSIASTSが目指すのは、創業者を含めた151人のコアメンバー共同体。組織の定量的な完成形としての数字です。</p>
+          <p style="margin:0; font-family:'Shippori Mincho',serif; font-size:18px; line-height:2.3; color:#D8D4CC">151人は、ファンではない。観客でもない。<br>各プロジェクトを本気で動かす、実装者です。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 12 WHY JOIN ============ -->
+  <section id="why-join" data-screen-label="12 WHY JOIN" style="border-top:1px solid rgba(236,233,228,0.1); background:#17141A; padding:170px 6vw">
+    <div style="max-width:900px; margin:0 auto">
+      <div data-reveal style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.28em; color:rgba(236,233,228,0.4); margin-bottom:64px">12&nbsp;&nbsp;WHY JOIN — なぜ所属するのか</div>
+      <h2 data-reveal style="font-family:'Shippori Mincho',serif; font-weight:600; font-size:clamp(26px,3.2vw,44px); line-height:1.9; margin:0 0 72px; color:#ECE9E4">あなたのプロジェクトを奪う場所ではない。<br>ひとりでは届かない場所まで届くための、<br>共同体である。</h2>
+      <div data-reveal style="font-size:15px; line-height:2.4; color:rgba(236,233,228,0.62); max-width:640px">
+        <p style="margin:0 0 2em; font-family:'Shippori Mincho',serif; font-size:16.5px; color:rgba(236,233,228,0.5)">「自分でやればよくないか」「所属したら自由度が下がるのではないか」「結局、子会社のような関係になるのではないか」</p>
+        <p style="margin:0 0 2em">この問いに対する答えは、明確です。リーダーは、自分のブランドの主役でいられる。ENTHUSIASTSは、その主役性を奪わない。むしろ、主役がより遠くまで届くための舞台、仲間、構造を提供します。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 13 VALUE ============ -->
+  <section id="value" data-screen-label="13 VALUE" style="border-top:1px solid rgba(236,233,228,0.1); padding:150px 6vw">
+    <div style="max-width:1240px; margin:0 auto">
+      <div data-reveal style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.28em; color:rgba(236,233,228,0.4); margin-bottom:28px">13&nbsp;&nbsp;VALUE</div>
+      <h2 data-reveal style="font-family:'Shippori Mincho',serif; font-weight:600; font-size:clamp(30px,3.4vw,46px); line-height:1.6; margin:0 0 96px; color:#ECE9E4">ENTHUSIASTSが提供するもの</h2>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:72px 64px">
+        <sc-for list="{{ values }}" as="v" hint-placeholder-count="5">
+          <div data-reveal>
+            <div style="display:flex; align-items:baseline; gap:18px; border-top:1px solid rgba(236,233,228,0.12); padding-top:28px; margin-bottom:22px">
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.2em; color:#C04E2B">{{ v.num }}</span>
+              <span style="font-family:'Shippori Mincho',serif; font-weight:600; font-size:22px; color:#ECE9E4">{{ v.title }}</span>
+            </div>
+            <p style="margin:0; font-size:14.5px; line-height:2.3; color:rgba(236,233,228,0.62)">{{ v.body }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 14 WHY NOW ============ -->
+  <section id="why-now" data-screen-label="14 WHY NOW" style="border-top:1px solid rgba(236,233,228,0.1); padding:150px 6vw">
+    <div style="max-width:1240px; margin:0 auto; display:flex; flex-wrap:wrap; gap:64px">
+      <div style="flex:0 0 200px" data-reveal>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.28em; color:rgba(236,233,228,0.4)">14</div>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.28em; color:rgba(236,233,228,0.4); margin-top:8px">WHY NOW</div>
+      </div>
+      <div style="flex:1 1 520px; min-width:300px">
+        <h2 data-reveal style="font-family:'Shippori Mincho',serif; font-weight:600; font-size:clamp(26px,3vw,42px); line-height:1.85; margin:0 0 56px; color:#ECE9E4">AI時代だからこそ、<br>「人間が何を背負い、なぜそれをやるのか」<br>の価値が高まる。</h2>
+        <div data-reveal style="font-size:15px; line-height:2.4; color:rgba(236,233,228,0.62); max-width:620px; margin-bottom:56px">
+          <p style="margin:0 0 2em">情報収集、文章作成、デザイン、事業設計——多くのことはAIによって加速されます。しかし、AIがどれだけ進化しても、人が自分の物語を生きたいという欲求は消えません。誰かに信じてもらいたい。仲間と進んでいる実感がほしい。自分がやる意味を感じたい。</p>
+          <p style="margin:0">ENTHUSIASTSは、AIを使いながら、AIでは代替できない価値を扱います。</p>
+        </div>
+        <div data-reveal style="display:flex; flex-wrap:wrap; gap:14px; margin-bottom:56px">
+          <span style="font-family:'Shippori Mincho',serif; font-size:16px; color:#D8D4CC; border:1px solid rgba(236,233,228,0.18); padding:12px 24px">思想</span>
+          <span style="font-family:'Shippori Mincho',serif; font-size:16px; color:#D8D4CC; border:1px solid rgba(236,233,228,0.18); padding:12px 24px">仲間</span>
+          <span style="font-family:'Shippori Mincho',serif; font-size:16px; color:#D8D4CC; border:1px solid rgba(236,233,228,0.18); padding:12px 24px">居場所</span>
+          <span style="font-family:'Shippori Mincho',serif; font-size:16px; color:#D8D4CC; border:1px solid rgba(236,233,228,0.18); padding:12px 24px">物語</span>
+          <span style="font-family:'Shippori Mincho',serif; font-size:16px; color:#D8D4CC; border:1px solid rgba(236,233,228,0.18); padding:12px 24px">挑戦の場</span>
+          <span style="font-family:'Shippori Mincho',serif; font-size:16px; color:#D8D4CC; border:1px solid rgba(236,233,228,0.18); padding:12px 24px">人を信じる力</span>
+        </div>
+        <p data-reveal style="margin:0; font-size:15px; line-height:2.4; color:#D8D4CC; max-width:620px">これらを通じて、ENTHUSIASTSはAI時代の自己実現の基盤をつくります。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 15 JOIN ============ -->
+  <section id="join" data-screen-label="15 JOIN" style="border-top:1px solid rgba(236,233,228,0.1); min-height:88vh; display:flex; flex-direction:column; justify-content:flex-end; padding:150px 6vw 0; box-sizing:border-box; background:radial-gradient(1100px 480px at 50% 112%, rgba(192,78,43,0.16), rgba(18,16,20,0) 70%)">
+    <div style="max-width:1240px; margin:0 auto; width:100%">
+      <div data-reveal style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.28em; color:rgba(236,233,228,0.4); margin-bottom:56px">15&nbsp;&nbsp;JOIN THE COLLECTIVE</div>
+      <h2 data-reveal style="font-family:'Shippori Mincho',serif; font-weight:700; font-size:clamp(36px,5.6vw,84px); line-height:1.55; margin:0 0 64px; color:#ECE9E4">あなたがやるべき理由が<br>あるなら、話そう。</h2>
+      <div data-reveal style="display:flex; flex-wrap:wrap; gap:48px 80px; align-items:flex-end; justify-content:space-between; margin-bottom:96px">
+        <div style="font-size:15px; line-height:2.4; color:rgba(236,233,228,0.62); max-width:560px">
+          <p style="margin:0 0 2em">世の中のために、どうしてもやりたいことがある。でも、仲間が足りない。環境が足りない。資本が足りない。自分一人では、まだ届かない場所がある。——その挑戦が、あなたにしかできないものなら、ENTHUSIASTSは共に考えます。</p>
+          <p style="margin:0; font-family:'Shippori Mincho',serif; font-size:17px; color:#D8D4CC">自分の原体験を、社会に実装したい人へ。<br>自分の痛みを、誰かの希望に変えたい人へ。<br>ENTHUSIASTSは、あなたの可能性を信じるところから始めます。</p>
+        </div>
+        <div style="display:flex; gap:16px">
+          <a href="#join" style="font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:0.22em; color:#ECE9E4; text-decoration:none; border:1px solid rgba(236,233,228,0.35); padding:18px 34px" style-hover="border-color:#ECE9E4; background:rgba(236,233,228,0.06)">CONTACT</a>
+          <a href="#join" style="font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:0.22em; color:#121014; text-decoration:none; background:#ECE9E4; border:1px solid #ECE9E4; padding:18px 34px" style-hover="background:#C04E2B; border-color:#C04E2B">JOIN THE COLLECTIVE</a>
+        </div>
+      </div>
+    </div>
+    <footer style="border-top:1px solid rgba(236,233,228,0.1); padding:32px 0; display:flex; flex-wrap:wrap; gap:16px 40px; align-items:center; justify-content:space-between; max-width:1240px; margin:0 auto; width:100%">
+      <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.3em; color:rgba(236,233,228,0.45)">ENTHUSIASTS</div>
+      <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.2em; color:rgba(236,233,228,0.3)">才能を孤独にしないためのプロデュース共同体</div>
+      <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.2em; color:rgba(236,233,228,0.3)">© 2026 ENTHUSIASTS</div>
+    </footer>
+  </section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;heroVariant&quot;: { &quot;editor&quot;: &quot;enum&quot;, &quot;options&quot;: [&quot;人生の主人公を増やす&quot;, &quot;才能を孤独にしない&quot;], &quot;default&quot;: &quot;人生の主人公を増やす&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;コピー&quot; },
+  &quot;grain&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;質感&quot; },
+  &quot;reveal&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;質感&quot; }
+}">
+class Component extends DCLogic {
+  renderVals() {
+    const heroVariant = this.props.heroVariant ?? "人生の主人公を増やす";
+    return {
+      grainOn: this.props.grain ?? true,
+      heroProtagonist: heroVariant !== "才能を孤独にしない",
+      heroSolitude: heroVariant === "才能を孤独にしない",
+      projects: [
+        {
+          name: "ROUGH",
+          jp: "ラフ",
+          label: "SPORTS / RUNNING × SELF-REALIZATION",
+          body: "ROUGHは、スポーツ、特にランニングを通じて自己実現を支えるプロジェクト。走ることを入口に、身体を整え、自分らしく生きる仲間と出会う。速さや距離だけを競うのではなく、自分のペースで人生を走り出すための場所をつくる。",
+          question: "スポーツを通じて、人は自分の人生を取り戻せるのか。"
+        },
+        {
+          name: "impulse",
+          jp: "インパルス",
+          label: "ARTIST / ROCK × SELF-REALIZATION",
+          body: "impulseは、アーティストやロックの衝動を、自己実現と社会的価値へ変換するプロジェクト。音楽、表現、衝動、感性——まだ言葉になっていない感情を、作品やブランドとして社会に届ける。",
+          question: "アーティストの衝動は、社会的価値へ変換できるのか。"
+        },
+        {
+          name: "rita",
+          jp: "リタ",
+          label: "MEDICAL / LIFE RESTART × SELF-REALIZATION",
+          body: "ritaは、医療や人生の再起動をテーマにした自己実現プロジェクト。病気や挫折によって一度止まった人生は、もう一度社会の希望になれるのか。自分の痛みや経験を、誰かの勇気に変えられるのか。利他の想いを、世界に届ける。",
+          question: "病気や挫折を経験した人は、もう一度誰かの希望になれるのか。"
+        }
+      ],
+      values: [
+        { num: "01", title: "言語化", body: "本人がまだうまく言葉にできていない原体験、怒り、願い、衝動を言語化する。なぜあなたがやるべきなのか。なぜこのプロジェクトは社会に必要なのか。なぜ人はあなたを応援するのか。——ここを一緒に掘る。" },
+        { num: "02", title: "ブランド化", body: "想いだけでは届かない。だから、思想をブランドにする。名前、コンセプト、世界観、コピー、デザイン、発信、体験に落とし込む。" },
+        { num: "03", title: "仲間とネットワーク", body: "ひとりでやると折れる。でも、仲間がいれば進める。ENTHUSIASTSには、他領域のリーダー、クリエイター、プロデューサー、協力者が集まる。" },
+        { num: "04", title: "戦略と実装力", body: "夢や想いを、現実に変えるには設計が必要である。誰に届けるのか。どう売るのか。どう仲間を集めるのか。どう続けるのか。——リーダーの想いを、実装可能なプロジェクトに変える。" },
+        { num: "05", title: "信用と物語", body: "新しい挑戦は、最初は信用がない。しかし、ENTHUSIASTSという母体があることで「この人は、本気で信じられている人だ」という信用が生まれる。ENTHUSIASTSは、リーダーの可能性に対する推薦状になる。" }
+      ]
+    };
+  }
+
+  componentDidMount() {
+    if (this.props.reveal === false) return;
+    const els = document.querySelectorAll("[data-reveal]");
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.style.opacity = "1";
+          e.target.style.transform = "translateY(0)";
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
+    els.forEach((el) => {
+      el.style.opacity = "0";
+      el.style.transform = "translateY(26px)";
+      el.style.transition = "opacity 1s cubic-bezier(0.19,1,0.22,1), transform 1s cubic-bezier(0.19,1,0.22,1)";
+      io.observe(el);
+    });
+    this._io = io;
+  }
+
+  componentWillUnmount() {
+    if (this._io) this._io.disconnect();
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style data-omelette-print-defaults>
+@media print {
+  @page { margin: 0.5in; }
+  h1, h2, h3, h4, h5, h6 { break-after: avoid; }
+  figure, table, pre, blockquote, img, svg, tr, [class~="card" i] { break-inside: avoid; }
+  img, svg { max-width: 100%; }
+  p { orphans: 3; widows: 3; }
+}
+</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ENTHUSIASTS — 人生の主人公を増やすプロデュース・ハブ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&amp;family=Noto+Sans+JP:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: #0A0B0F; color: #E8EAEF; -webkit-font-smoothing: antialiased; }
+    ::selection { background: #5C82BE; color: #0A0B0F; }
+    @keyframes heroRise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes pulseDot { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+    /* VISION blocks: each block reflows on ITS OWN width (container query),
+       so it adapts smoothly to any screen size with no viewport breakpoint jumps.
+       Narrow (default): single column, text above image.
+       Wide: two columns, image side alternating by direction. */
+    [data-vision-block] { transition: border-color 0.5s ease, background 0.5s ease; }
+    @container (min-width: 560px) {
+      [data-vision-inner] { grid-template-columns: 1.05fr 1fr !important; }
+      [data-vision-block][data-dir="ltr"] [data-vision-media] { order: 1 !important; }
+      [data-vision-block][data-dir="ltr"] [data-vision-text]  { order: 2 !important; }
+      [data-vision-block][data-dir="rtl"] [data-vision-media] { order: 2 !important; }
+      [data-vision-block][data-dir="rtl"] [data-vision-text]  { order: 1 !important; }
+    }
+    [data-proj-block] { transition: border-color 0.5s ease, background 0.5s ease; }
+    [data-proj-body] > p:last-of-type { margin-bottom: 0 !important; }
+    @container (min-width: 560px) {
+      [data-proj-inner] { grid-template-columns: minmax(0,0.9fr) minmax(0,1.1fr) !important; }
+    }
+    @container (min-width: 620px) {
+      [data-member-grid] { grid-template-columns: 1fr 1fr !important; }
+    }
+  </style>
+</helmet>
+
+<div style="font-family:'Archivo','Noto Sans JP',sans-serif; background:#0A0B0F; color:#E8EAEF; overflow-x:hidden; position:relative">
+
+  <!-- grain -->
+  <sc-if value="{{ grainOn }}" hint-placeholder-val="{{ true }}">
+    <div style="position:fixed; inset:0; z-index:60; pointer-events:none; opacity:0.045; background-image:url('data:image/svg+xml;utf8,&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;160&quot; height=&quot;160&quot;&gt;&lt;filter id=&quot;n&quot;&gt;&lt;feTurbulence type=&quot;fractalNoise&quot; baseFrequency=&quot;0.9&quot; numOctaves=&quot;2&quot;/&gt;&lt;/filter&gt;&lt;rect width=&quot;160&quot; height=&quot;160&quot; filter=&quot;url(%23n)&quot;/&gt;&lt;/svg&gt;')"></div>
+  </sc-if>
+
+  <!-- header -->
+  <header style="position:fixed; top:0; left:0; right:0; z-index:55; display:flex; align-items:center; gap:44px; padding:20px 4.5vw; background:linear-gradient(to bottom, rgba(10,11,15,0.88), rgba(10,11,15,0)); backdrop-filter:blur(2px)">
+    <a href="#top" style="font-family:'Archivo','Noto Sans JP',sans-serif; font-size:16px; letter-spacing:0.14em; color:#E8EAEF; text-decoration:none; font-weight:800">ENTHUSIASTS</a>
+    <nav style="display:flex; gap:34px; align-items:center">
+      <a href="#top" style="font-family:'Archivo','Noto Sans JP',sans-serif; font-size:10.5px; letter-spacing:0.22em; color:rgba(232,234,239,0.55); text-decoration:none" style-hover="color:#E8EAEF">HOME</a>
+      <a href="#about" style="font-family:'Archivo','Noto Sans JP',sans-serif; font-size:10.5px; letter-spacing:0.22em; color:rgba(232,234,239,0.55); text-decoration:none" style-hover="color:#E8EAEF">ABOUT</a>
+      <a href="#vision" style="font-family:'Archivo','Noto Sans JP',sans-serif; font-size:10.5px; letter-spacing:0.22em; color:rgba(232,234,239,0.55); text-decoration:none" style-hover="color:#E8EAEF">VISION</a>
+      <a href="#projects" style="font-family:'Archivo','Noto Sans JP',sans-serif; font-size:10.5px; letter-spacing:0.22em; color:rgba(232,234,239,0.55); text-decoration:none" style-hover="color:#E8EAEF">PROJECTS</a>
+      <a href="#member" style="font-family:'Archivo','Noto Sans JP',sans-serif; font-size:10.5px; letter-spacing:0.22em; color:rgba(232,234,239,0.55); text-decoration:none" style-hover="color:#E8EAEF">MEMBER</a>
+      <a href="#contact" style="font-family:'Archivo','Noto Sans JP',sans-serif; font-size:10.5px; letter-spacing:0.22em; color:rgba(232,234,239,0.55); text-decoration:none" style-hover="color:#E8EAEF">CONTACT</a>
+    </nav>
+  </header>
+
+  <!-- ============ 01 HERO ============ -->
+  <section id="top" data-screen-label="01 HERO" style="min-height:100vh; position:relative; display:flex; flex-direction:column; justify-content:flex-end; padding:120px 6vw 10vh; box-sizing:border-box; overflow:hidden">
+    <canvas ref="{{ canvasRef }}" style="position:absolute; inset:0; width:100%; height:100%; display:block"></canvas>
+    <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(10,11,15,0.92) 0%, rgba(10,11,15,0.35) 38%, rgba(10,11,15,0.05) 65%); pointer-events:none"></div>
+    <div style="position:relative; z-index:2">
+      <div style="display:flex; align-items:center; gap:14px; animation:heroRise 1.1s cubic-bezier(0.19,1,0.22,1) 0.1s both">
+        <span style="width:7px; height:7px; border-radius:50%; background:#5C82BE; animation:pulseDot 3.2s ease-in-out infinite"></span>
+        <span style="font-family:'Archivo','Noto Sans JP',sans-serif; font-size:11px; letter-spacing:0.34em; color:rgba(232,234,239,0.6)">HUMAN POTENTIAL PRODUCE PROJECT</span>
+      </div>
+      <h1 style="font-family:'Archivo','Noto Sans JP',sans-serif; font-weight:800; font-size:clamp(44px,7.6vw,116px); line-height:1.02; letter-spacing:-0.01em; text-transform:uppercase; margin:22px 0 0; color:#E8EAEF; animation:heroRise 1.2s cubic-bezier(0.19,1,0.22,1) 0.25s both; text-shadow:0 2px 30px rgba(10,11,15,0.8)">Producing the potential<br>of every human</h1>
+      <div style="margin-top:44px; animation:heroRise 1.2s cubic-bezier(0.19,1,0.22,1) 0.45s both">
+        <p style="max-width:640px; margin:0; font-family:'Archivo','Noto Sans JP',sans-serif; font-size:clamp(15px,1.5vw,18px); font-weight:500; line-height:2.3; color:rgba(232,234,239,0.82)">私たちENTHUSIASTSは、「きっかけの格差」によって埋もれてしまう才能を、仲間・戦略・ブランド・資本・コミュニティの力で社会に実装し、一人ひとりが自分の人生の主人公として生きられる世界を目指しています。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 02 WHAT IS ENTHUSIASTS ============ -->
+  <section id="about" data-screen-label="02 ABOUT" style="border-top:1px solid rgba(232,234,239,0.1); padding:150px 6vw 90px; text-align:center">
+    <div style="max-width:920px; margin:0 auto">
+      <h2 data-reveal style="font-family:'Archivo','Noto Sans JP',sans-serif; font-weight:800; font-size:clamp(34px,5.2vw,74px); letter-spacing:-0.005em; line-height:1.12; text-transform:uppercase; margin:0 0 22px; color:#E8EAEF">What is Enthusiasts</h2>
+      <div data-reveal style="font-family:'Archivo','Noto Sans JP',sans-serif; font-size:15px; letter-spacing:0.04em; color:rgba(232,234,239,0.45); margin-bottom:88px">ENTHUSIASTSとは</div>
+      <p data-reveal style="max-width:820px; margin:0 auto; font-size:clamp(15px,1.35vw,17px); line-height:2.5; color:rgba(232,234,239,0.68); text-align:justify">人生には、運の要素が大きすぎます。生まれた場所、出会った大人、教育環境、文化資本、資金、人脈、そして自分を信じてくれる人の存在。その多くは、自分の意志だけでは選べません。挑戦を応援される人と、挑戦する前に否定される人。その差は、才能そのものの差ではなく「きっかけの差」です。本プロジェクト「ENTHUSIASTS」は、この“きっかけの格差”によって埋もれてしまう才能を、仲間・戦略・ブランド・資本・コミュニティの力で社会へ実装することを目的としています。人は、環境と仲間があれば変われる。私たちは人の可能性を信じ抜き、一人ひとりが自分の人生の主人公として生きられる社会の構築に挑んでいます。</p>
+    </div>
+  </section>
+
+  <!-- ============ 04 OUR VISION ============ -->
+  <section id="vision" data-screen-label="04 OUR VISION" style="border-top:1px solid rgba(232,234,239,0.1); padding:96px 6vw 120px">
+    <div style="max-width:1180px; margin:0 auto">
+      <div style="text-align:center; margin-bottom:80px">
+        <h2 data-reveal style="font-family:'Archivo','Noto Sans JP',sans-serif; font-weight:800; font-size:clamp(34px,5.2vw,74px); letter-spacing:-0.005em; line-height:1.12; text-transform:uppercase; margin:0 0 22px; color:#E8EAEF">Our Vision</h2>
+        <div data-reveal style="font-family:'Archivo','Noto Sans JP',sans-serif; font-size:15px; letter-spacing:0.04em; color:rgba(232,234,239,0.45)" data-comment-anchor="04c76fab6f-div">ビジョン</div>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:clamp(22px,3vw,40px)">
+        <sc-for list="{{ visions }}" as="v" hint-placeholder-count="0">
+          <div data-reveal data-vision-block data-dir="{{ v.dir }}" style="container-type:inline-size; border:1px solid rgba(232,234,239,0.12); background:linear-gradient(180deg, rgba(19,22,30,0.5), rgba(13,15,21,0.5)); padding:clamp(22px,3.4cqi,52px)" data-comment-anchor="4aa266d34d-div">
+            <div data-vision-inner style="display:grid; grid-template-columns:1fr; gap:clamp(26px,4cqi,58px); align-items:center">
+              <div data-vision-media style="order:2; min-width:0">
+                <div style="border:1px solid rgba(232,234,239,0.12); background:#0D0F15; aspect-ratio:4/3; overflow:hidden">
+                  <img src="{{ v.img }}" alt="{{ v.title }}" style="width:100%; height:100%; object-fit:cover; display:block">
+                </div>
+              </div>
+              <div data-vision-text style="order:1; min-width:0">
+                <div style="font-family:'Archivo','Noto Sans JP',sans-serif; font-size:11px; letter-spacing:0.3em; color:#5C82BE; margin-bottom:clamp(16px,2cqi,26px)">VISION {{ v.num }}</div>
+                <h3 style="font-family:'Archivo','Noto Sans JP',sans-serif; font-weight:700; font-size:clamp(21px,3.2cqi,32px); line-height:1.7; margin:0 0 clamp(18px,2.6cqi,30px); color:#E8EAEF; text-wrap:pretty">{{ v.title }}<sc-if value="{{ v.title2 }}" hint-placeholder-val="{{ false }}"><br>{{ v.title2 }}</sc-if></h3>
+                <p style="margin:0; font-size:clamp(14px,1.7cqi,16px); line-height:2.35; color:rgba(232,234,239,0.65)">{{ v.body }}</p>
+              </div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 05 PROJECTS ============ -->
+  <section id="projects" data-screen-label="05 PROJECTS" style="border-top:1px solid rgba(232,234,239,0.1); background:#0E1016; padding:clamp(96px,12vw,160px) 6vw">
+    <div style="max-width:1180px; margin:0 auto">
+      <div data-reveal style="font-family:'Archivo','Noto Sans JP',sans-serif; font-size:11px; letter-spacing:0.3em; color:#5C82BE; margin-bottom:20px">05</div>
+      <h2 data-reveal style="font-family:'Archivo','Noto Sans JP',sans-serif; font-weight:600; font-size:clamp(30px,4.4vw,58px); letter-spacing:0.03em; line-height:1.25; margin:0 0 14px; color:#E8EAEF">PROJECTS</h2>
+      <div data-reveal style="font-family:'Archivo','Noto Sans JP',sans-serif; font-size:17px; color:rgba(232,234,239,0.5); margin-bottom:clamp(56px,7vw,88px)">実装アプローチ</div>
+      <div style="display:flex; flex-direction:column; gap:clamp(24px,3vw,44px)">
+        <sc-for list="{{ projects }}" as="p" hint-placeholder-count="0">
+          <div data-reveal data-proj-block style="container-type:inline-size; border:1px solid rgba(232,234,239,0.12); background:linear-gradient(180deg, rgba(19,22,30,0.55), rgba(13,15,21,0.55)); padding:clamp(26px,4.5cqi,64px)" style-hover="border-color:rgba(232,234,239,0.26)">
+            <div style="display:flex; flex-wrap:wrap; gap:12px 24px; align-items:baseline; justify-content:space-between; padding-bottom:clamp(16px,2.2cqi,24px); border-bottom:1px solid rgba(232,234,239,0.1); margin-bottom:clamp(28px,4.5cqi,56px)">
+              <span style="font-family:'Archivo','Noto Sans JP',sans-serif; font-size:11px; letter-spacing:0.3em; color:#5C82BE">PROJECT {{ p.num }}</span>
+              <span style="font-family:'Archivo','Noto Sans JP',sans-serif; font-size:10.5px; letter-spacing:0.24em; color:rgba(232,234,239,0.4)">{{ p.label }}</span>
+            </div>
+            <div data-proj-inner style="display:grid; grid-template-columns:1fr; gap:clamp(32px,5.5cqi,76px); align-items:start">
+              <div style="min-width:0">
+                <div style="background:#FFFFFF; aspect-ratio:16/10; display:flex; align-items:center; justify-content:center; overflow:hidden">
+                  <sc-if value="{{ ready }}" hint-placeholder-val="{{ false }}">
+                    <img src="{{ p.logo }}" alt="{{ p.name }}" style="width:58%; height:52%; object-fit:contain; display:block">
+                  </sc-if>
+                </div>
+                <div style="display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:8px 20px; margin-top:clamp(18px,2.4cqi,26px)">
+                  <span style="font-family:'Archivo','Noto Sans JP',sans-serif; font-weight:600; font-size:clamp(24px,3.4cqi,34px); letter-spacing:0.03em; color:#E8EAEF">{{ p.name }}</span>
+                  <span style="font-family:'Archivo','Noto Sans JP',sans-serif; font-size:13px; color:rgba(232,234,239,0.45)">{{ p.jp }}</span>
+                </div>
+              </div>
+              <div style="min-width:0">
+                <div style="font-family:'Archivo','Noto Sans JP',sans-serif; font-size:10px; letter-spacing:0.28em; color:rgba(232,234,239,0.4); margin-bottom:clamp(14px,1.8cqi,18px)">PHILOSOPHY — 理念</div>
+                <h3 style="font-family:'Archivo','Noto Sans JP',sans-serif; font-weight:700; font-size:clamp(22px,3.4cqi,36px); line-height:1.55; letter-spacing:0.01em; margin:0 0 clamp(26px,3.6cqi,42px); color:#E8EAEF; text-wrap:pretty">{{ p.concept }}</h3>
+                <div data-proj-body>
+                  <sc-for list="{{ p.body }}" as="para" hint-placeholder-count="2">
+                    <p style="margin:0 0 1.7em; font-size:clamp(14px,1.65cqi,15.5px); line-height:2.3; color:rgba(232,234,239,0.66); max-width:640px; text-wrap:pretty">{{ para }}</p>
+                  </sc-for>
+                </div>
+              </div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 06 PROJECT MEMBER ============ -->
+  <section id="member" data-screen-label="06 PROJECT MEMBER" style="border-top:1px solid rgba(232,234,239,0.1); padding:clamp(96px,12vw,160px) 6vw; text-align:center">
+    <div style="max-width:1180px; margin:0 auto">
+      <div data-reveal style="font-family:'Archivo','Noto Sans JP',sans-serif; font-size:11px; letter-spacing:0.3em; color:#5C82BE; margin-bottom:20px">06</div>
+      <h2 data-reveal style="font-family:'Archivo','Noto Sans JP',sans-serif; font-weight:800; font-size:clamp(34px,5.4vw,72px); letter-spacing:0.02em; line-height:1.1; margin:0 0 18px; color:#E8EAEF">PROJECT MEMBER</h2>
+      <div data-reveal style="font-family:'Archivo','Noto Sans JP',sans-serif; font-size:15px; letter-spacing:0.04em; color:rgba(232,234,239,0.5); margin-bottom:clamp(56px,7vw,88px)">推進メンバー</div>
+
+      <div data-reveal data-member-panel style="container-type:inline-size; text-align:left; border:1px solid rgba(232,234,239,0.12); background:linear-gradient(180deg, rgba(19,22,30,0.55), rgba(13,15,21,0.55)); padding:clamp(28px,4.5cqi,64px)">
+        <div style="font-family:'Archivo','Noto Sans JP',sans-serif; font-size:11px; letter-spacing:0.24em; color:rgba(232,234,239,0.45); margin-bottom:10px">プロジェクトリード</div>
+        <h3 style="font-family:'Archivo','Noto Sans JP',sans-serif; font-weight:800; font-size:clamp(24px,3.6cqi,38px); letter-spacing:0.03em; margin:0 0 clamp(32px,4.5cqi,52px); color:#E8EAEF">PROJECT LEAD</h3>
+        <div data-member-grid style="display:grid; grid-template-columns:1fr; gap:clamp(28px,4cqi,44px)">
+          <sc-for list="{{ members }}" as="m" hint-placeholder-count="4">
+            <div style="display:flex; gap:clamp(20px,3cqi,32px); align-items:flex-start">
+              <div style="flex:0 0 auto; width:clamp(112px,20cqi,168px); aspect-ratio:1/1; background:#11131A; border:1px solid rgba(232,234,239,0.12); overflow:hidden">
+                <sc-if value="{{ m.img }}" hint-placeholder-val="{{ false }}">
+                  <img src="{{ m.img }}" alt="{{ m.nameEn }}" style="width:100%; height:100%; object-fit:cover; display:block">
+                </sc-if>
+              </div>
+              <div style="flex:1 1 0; min-width:0">
+                <div style="font-family:'Noto Sans JP',sans-serif; font-size:clamp(13px,1.5cqi,14px); color:rgba(232,234,239,0.55); margin-bottom:6px">{{ m.nameJp }}</div>
+                <div style="font-family:'Archivo','Noto Sans JP',sans-serif; font-weight:700; font-size:clamp(18px,2.4cqi,24px); letter-spacing:0.02em; color:#E8EAEF; margin-bottom:4px">{{ m.nameEn }}</div>
+                <div style="font-family:'Archivo','Noto Sans JP',sans-serif; font-size:11px; letter-spacing:0.18em; color:#5C82BE; margin-bottom:clamp(12px,1.8cqi,16px)">{{ m.role }}</div>
+                <p style="margin:0; font-size:clamp(13.5px,1.5cqi,15px); line-height:2.1; color:rgba(232,234,239,0.62); text-wrap:pretty">{{ m.bio }}</p>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 07 CONTACT ============ -->
+  <section id="contact" data-screen-label="07 CONTACT" style="border-top:1px solid rgba(232,234,239,0.1); background:#0E1016; padding:clamp(96px,12vw,168px) 6vw">
+    <div style="max-width:960px; margin:0 auto">
+      <div data-reveal style="font-family:'Archivo','Noto Sans JP',sans-serif; font-size:11px; letter-spacing:0.3em; color:#5C82BE; margin-bottom:20px">07</div>
+      <h2 data-reveal style="font-family:'Archivo','Noto Sans JP',sans-serif; font-weight:800; font-size:clamp(34px,5.4vw,72px); letter-spacing:0.02em; line-height:1.08; margin:0 0 18px; color:#E8EAEF">CONTACT</h2>
+      <div data-reveal style="font-family:'Archivo','Noto Sans JP',sans-serif; font-size:15px; letter-spacing:0.04em; color:rgba(232,234,239,0.5); margin-bottom:clamp(20px,3vw,32px)">お問い合わせ</div>
+      <p data-reveal style="margin:0 0 clamp(48px,6vw,72px); font-size:15px; line-height:2.3; color:rgba(232,234,239,0.62); max-width:600px; text-wrap:pretty">プロジェクトへの参加、協業、取材のご相談など、お気軽にご連絡ください。以下のフォームからお送りいただいた内容は、担当者が確認のうえ折り返しご連絡いたします。</p>
+
+      <form data-reveal onSubmit="{{ onSubmit }}" style="display:flex; flex-direction:column; gap:clamp(28px,4vw,44px)">
+        <label style="display:flex; flex-direction:column; gap:12px">
+          <span style="font-family:'Archivo','Noto Sans JP',sans-serif; font-size:11px; letter-spacing:0.2em; color:rgba(232,234,239,0.5)">お名前 <span style="color:#5C82BE">*</span></span>
+          <input type="text" value="{{ fName }}" onInput="{{ onName }}" required="required" placeholder="山田 太郎" style="background:transparent; border:none; border-bottom:1px solid rgba(232,234,239,0.22); padding:12px 2px; font-family:'Noto Sans JP',sans-serif; font-size:16px; color:#E8EAEF; outline:none" style-focus="border-bottom-color:#5C82BE">
+        </label>
+        <label style="display:flex; flex-direction:column; gap:12px">
+          <span style="font-family:'Archivo','Noto Sans JP',sans-serif; font-size:11px; letter-spacing:0.2em; color:rgba(232,234,239,0.5)">メールアドレス <span style="color:#5C82BE">*</span></span>
+          <input type="email" value="{{ fEmail }}" onInput="{{ onEmail }}" required="required" placeholder="you@example.com" style="background:transparent; border:none; border-bottom:1px solid rgba(232,234,239,0.22); padding:12px 2px; font-family:'Noto Sans JP',sans-serif; font-size:16px; color:#E8EAEF; outline:none" style-focus="border-bottom-color:#5C82BE">
+        </label>
+        <label style="display:flex; flex-direction:column; gap:12px">
+          <span style="font-family:'Archivo','Noto Sans JP',sans-serif; font-size:11px; letter-spacing:0.2em; color:rgba(232,234,239,0.5)">会社名・所属</span>
+          <input type="text" value="{{ fCompany }}" onInput="{{ onCompany }}" placeholder="任意" style="background:transparent; border:none; border-bottom:1px solid rgba(232,234,239,0.22); padding:12px 2px; font-family:'Noto Sans JP',sans-serif; font-size:16px; color:#E8EAEF; outline:none" style-focus="border-bottom-color:#5C82BE">
+        </label>
+        <label style="display:flex; flex-direction:column; gap:12px">
+          <span style="font-family:'Archivo','Noto Sans JP',sans-serif; font-size:11px; letter-spacing:0.2em; color:rgba(232,234,239,0.5)">お問い合わせ内容 <span style="color:#5C82BE">*</span></span>
+          <textarea value="{{ fMessage }}" onInput="{{ onMessage }}" required="required" rows="5" placeholder="ご相談内容をご記入ください。" style="background:transparent; border:1px solid rgba(232,234,239,0.22); padding:16px; font-family:'Noto Sans JP',sans-serif; font-size:16px; line-height:1.8; color:#E8EAEF; outline:none; resize:vertical" style-focus="border-color:#5C82BE"></textarea>
+        </label>
+        <label style="display:flex; gap:14px; align-items:flex-start; cursor:pointer">
+          <input type="checkbox" checked="{{ fAgreed }}" onChange="{{ onAgreed }}" required="required" style="margin-top:4px; width:18px; height:18px; accent-color:#5C82BE; flex:0 0 auto">
+          <span style="font-family:'Noto Sans JP',sans-serif; font-size:13.5px; line-height:1.9; color:rgba(232,234,239,0.62)"><a href="Privacy%20Policy.dc.html" style="color:#9FC2E8; text-decoration:underline; text-underline-offset:3px">プライバシーポリシー</a>に同意のうえ送信します。</span>
+        </label>
+        <div style="display:flex; flex-wrap:wrap; gap:20px 32px; align-items:center; margin-top:clamp(8px,1.5vw,16px)">
+          <button type="submit" style="font-family:'Archivo','Noto Sans JP',sans-serif; font-size:12px; letter-spacing:0.22em; color:#0A0B0F; background:#E8EAEF; border:1px solid #E8EAEF; padding:18px 44px; cursor:pointer; transition:background 0.3s ease, border-color 0.3s ease" style-hover="background:#9FC2E8; border-color:#9FC2E8">送信する →</button>
+          <sc-if value="{{ fSent }}" hint-placeholder-val="{{ false }}">
+            <span style="font-family:'Noto Sans JP',sans-serif; font-size:13.5px; color:#9FC2E8">メールソフトを起動しました。送信を完了してください。</span>
+          </sc-if>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer style="border-top:1px solid rgba(232,234,239,0.1); padding:34px 6vw; display:flex; flex-wrap:wrap; gap:16px 40px; align-items:center; justify-content:space-between">
+    <div style="font-family:'Archivo','Noto Sans JP',sans-serif; font-size:11px; letter-spacing:0.28em; color:rgba(232,234,239,0.45)">ENTHUSIASTS</div>
+    <div style="display:flex; flex-wrap:wrap; gap:10px 28px; align-items:center">
+      <a href="Privacy%20Policy.dc.html" style="font-family:'Archivo','Noto Sans JP',sans-serif; font-size:10px; letter-spacing:0.18em; color:rgba(232,234,239,0.45); text-decoration:none" style-hover="color:#E8EAEF">PRIVACY POLICY</a>
+      <div style="font-family:'Archivo','Noto Sans JP',sans-serif; font-size:10px; letter-spacing:0.18em; color:rgba(232,234,239,0.3)">© 2026 ENTHUSIASTS</div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;discordUrl&quot;: { &quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;#&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;リンク&quot; },
+  &quot;asciiPalette&quot;: { &quot;editor&quot;: &quot;enum&quot;, &quot;options&quot;: [&quot;blue&quot;, &quot;ember&quot;, &quot;mono&quot;], &quot;default&quot;: &quot;blue&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;ヒーロー&quot; },
+  &quot;grain&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;質感&quot; },
+  &quot;reveal&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;質感&quot; }
+}">
+class Component extends DCLogic {
+  state = { ready: false, fName: "", fEmail: "", fCompany: "", fMessage: "", fAgreed: false, fSent: false };
+
+  _submit = (e) => {
+    if (e && e.preventDefault) e.preventDefault();
+    const { fName, fEmail, fCompany, fMessage } = this.state;
+    const to = "satokichi1019@gmail.com";
+    const subject = "【ENTHUSIASTS】お問い合わせ" + (fName ? "（" + fName + "様）" : "");
+    const bodyLines = [
+      "お名前: " + fName,
+      "メールアドレス: " + fEmail,
+      "会社名・所属: " + (fCompany || "―"),
+      "",
+      "お問い合わせ内容:",
+      fMessage
+    ];
+    const href = "mailto:" + to + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(bodyLines.join("\n"));
+    window.location.href = href;
+    this.setState({ fSent: true });
+  };
+
+  renderVals() {
+    return {
+      ready: this.state.ready,
+      grainOn: this.props.grain ?? true,
+      discordUrl: this.props.discordUrl ?? "#",
+      canvasRef: (el) => { this._canvas = el; },
+      fName: this.state.fName,
+      fEmail: this.state.fEmail,
+      fCompany: this.state.fCompany,
+      fMessage: this.state.fMessage,
+      fAgreed: this.state.fAgreed,
+      fSent: this.state.fSent,
+      onName: (e) => this.setState({ fName: e.target.value }),
+      onEmail: (e) => this.setState({ fEmail: e.target.value }),
+      onCompany: (e) => this.setState({ fCompany: e.target.value }),
+      onMessage: (e) => this.setState({ fMessage: e.target.value }),
+      onAgreed: (e) => this.setState({ fAgreed: e.target.checked }),
+      onSubmit: this._submit,
+      visions: [
+        {
+          num: "01", dir: "ltr", img: "assets/vision-01.png",
+          title: "才能の機会損失をゼロにする",
+          body: "生まれた場所や環境によって、挑戦する前に消えていく才能があります。ENTHUSIASTSは、埋もれた才能が発見され、信じられ、磨かれ、社会と接続されるまでの構造をつくることで、「気づかれないまま終わる可能性」を世界からなくすことを目指します。"
+        },
+        {
+          num: "02", dir: "rtl", img: "assets/vision-02.png",
+          title: "才能と機会のあり方を再定義する",
+          body: "AIがあらゆる作業を加速する時代に、人間にしか担えない価値とは何か。私たちはAIを人間の対立物ではなく増幅装置と捉え、機械が効率を、人間が物語を担う協働のかたちを設計します。テクノロジーと共に、才能がより遠くまで届く仕組みを再定義します。"
+        },
+        {
+          num: "03", dir: "ltr", img: "assets/vision-03.png",
+          title: "「お前じゃ無理」を",
+          title2: "「お前じゃなきゃ無理」に変える",
+          body: "挑戦する前から否定される人の背景には、その人にしかない原体験と願いがあります。人生の奥にある物語を掘り起こし、社会に届く言葉に変換し、ブランドとして設計し、仲間を集める。その先で「あなたじゃなきゃ無理だった」と言われる転換を生み出します。"
+        }
+      ],
+      index: [
+        { num: "02", en: "WHAT IS ENTHUSIASTS", jp: "ENTHUSIASTSとは", href: "#about" },
+        { num: "03", en: "PROBLEM", jp: "向き合う問題", href: "#problem" },
+        { num: "04", en: "VISION", jp: "目指す世界", href: "#vision" },
+        { num: "05", en: "PROJECTS", jp: "実験領域", href: "#projects" },
+        { num: "06", en: "PROJECT MEMBER", jp: "推進メンバー", href: "#member" },
+        { num: "07", en: "CONTACT", jp: "お問い合わせ", href: "#contact" }
+      ],
+      members: [
+        {
+          nameJp: "佐々木 慧",
+          nameEn: "SATOSHI SASAKI",
+          role: "ENTHUSIASTS FOUNDER / PRODUCER",
+          bio: "幼少期は父の影響でプロレーサーを志すも、その道を断念。大学と専門学校でIT・経営を学んだ後、新卒で独立。「原石に光を」を理念に、才能の機会損失をゼロにするため、人材育成・コミュニティプロデュースを手がける。",
+          img: "assets/mem-20.png"
+        },
+        {
+          nameJp: "布野 雅也",
+          nameEn: "MASAYA FUNO",
+          role: "ROUGH FOUNDER",
+          bio: "中学・高校ともに全国駅伝大会へ出場し、帝京大学駅伝部へ進学。前十字靭帯断裂により箱根駅伝への道を断念した後、TWOLAPSにてMDCのコアメンバーとして活動。現在はランニングコミュニティ「ROUGH」を立ち上げ、誰もが自分の人生を自分の足で走れる社会の実現を目指す。",
+          img: "assets/mem-23.png"
+        },
+        {
+          nameJp: "奥野 七夢",
+          nameEn: "NATSUMU OKUNO",
+          role: "rita FOUNDER / CANCER SURVIVOR",
+          bio: "龍谷大学付属平安高等学校に野球推薦で進学し、甲子園100回記念大会に出場。15歳で白血病を発症し、16歳・19歳で再発を経験。3度の白血病を乗り越えた経験を原点に、骨髄バンクユースアンバサダー・京都大学小児がんピアサポーターとしても活動。現在はプロジェクト「rita」を立ち上げ、「利他が溢れ続ける世界」の実現を目指す。",
+          img: "assets/mem-22.png"
+        },
+        {
+          nameJp: "當内 脩平",
+          nameEn: "SYUHEI TOUCHI",
+          role: "Impülse FOUNDER / ARTIST",
+          bio: "300人規模の音楽フェスイベント「STAR'Z DASH!!」を主宰。音楽を軸に、アーティスト・企業・学生が交差する熱狂の場をつくる。「Make Your Rock」を掲げ、若者の衝動が社会に消される前に、世界へ鳴らす表現へと変えている。",
+          img: "assets/mem-21.png"
+        }
+      ],
+      projects: [
+        {
+          num: "01",
+          name: "rita",
+          jp: "リタ／ウェルネス",
+          logo: "assets/proj-rita.png",
+          label: "WELLNESS × ALTRUISM",
+          concept: "利他の想いを世界に",
+          body: [
+            "ritaとは、「利他の想いを世界に」という理念のもと、日本に根づく利他の精神をウェルネスの実践へと翻訳し、世界に届けていくプロジェクトです。代表が三度の白血病を経験し、「生かされたこの命を、誰かのために燃やしたい」という想いから生まれました。自分自身を整えることと、誰かを想うこと。その二つを分断せず、心身の健やかさを社会へのやさしい行動へと接続していきます。",
+            "ウェルネス事業を主軸に、学び・体験・コミュニティを通じて、一人ひとりの中にある利他の想いを育み、「利他が溢れ続ける世界」の実現を目指します。"
+          ]
+        },
+        {
+          num: "02",
+          name: "ROUGH",
+          jp: "ラフ／ランニング",
+          logo: "assets/proj-rough.jpg",
+          label: "RUNNING × SELF-LOVE",
+          concept: "Run Your Life",
+          body: [
+            "ROUGHとは、「Run Your Life」という理念のもと、誰もが自分の人生を自分の足で走れる社会を目指すプロジェクトです。",
+            "AIがあらゆる領域に浸透する時代だからこそ、ROUGHは身体性と自己愛を大切にします。ランニングを共通言語に、走ることを通じて、自分のリズムを取り戻し、自分の良さに気づき、他者とゆるやかにつながるコミュニティを運営します。",
+            "速さや記録だけを競うのではなく、自分の人生をどう走るのかを問い直す場所として、ランニングを日常と人生を整える入口へと変えていきます。"
+          ]
+        },
+        {
+          num: "03",
+          name: "Impülse",
+          jp: "インパルス／ミュージック",
+          logo: "assets/proj-impulse.png",
+          label: "MUSIC × IMPULSE",
+          concept: "Make Your Rock",
+          body: [
+            "Impulseとは、「Make Your Rock」という理念のもと、一人ひとりの内側にある衝動を形にし、世界に響く表現へと昇華させるプロジェクトです。",
+            "「Make Your Rock」とは、誰かの正解になることでも、派手に反抗することでもありません。自分の内側にある譲れない信念や、行き場のない衝動を手放さず、見て見ぬふりをせず、表現し続けることです。",
+            "私たちは、音楽を一つの軸に、アーティストとして衝動を表現し続けます。そして、あらゆる人々が抱える違和感や熱量を、単なる不満や未完成の感情で終わらせず、社会に消される前に、世界を鳴らす形へとプロデュースしていきます。",
+            "Impulseは、埋もれる才能が自らの衝動を信じ、その声を世界に放つためのプロジェクトです。"
+          ]
+        }
+      ]
+    };
+  }
+
+  componentDidMount() {
+    this.setState({ ready: true });
+    this._setupReveal();
+    this._startAscii();
+  }
+
+  _startVisionArt() {
+    const canvases = [this._vc1, this._vc2, this._vc3];
+    if (canvases.some((c) => !c)) { setTimeout(() => this._startVisionArt(), 150); return; }
+    const fit = (c) => {
+      const r = c.getBoundingClientRect();
+      const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+      c.width = Math.max(1, Math.round(r.width * dpr));
+      c.height = Math.max(1, Math.round(r.height * dpr));
+      return dpr;
+    };
+    let dprs = canvases.map(fit);
+    this._onVResize = () => { dprs = canvases.map(fit); };
+    window.addEventListener("resize", this._onVResize);
+
+    const hash = (x, y) => {
+      let n = (x | 0) * 374761393 + (y | 0) * 668265263;
+      n = Math.imul(n ^ (n >>> 13), 1274126177);
+      return ((n ^ (n >>> 16)) >>> 0) / 4294967295;
+    };
+
+    // 01: dark particle field — hidden talents flaring into light
+    const draw1 = (c, t) => {
+      const ctx = c.getContext("2d"), W = c.width, H = c.height;
+      ctx.fillStyle = "#0D0F15"; ctx.fillRect(0, 0, W, H);
+      const gx = 26, gy = 16;
+      for (let j = 0; j < gy; j++) {
+        for (let i = 0; i < gx; i++) {
+          const h = hash(i * 17 + 3, j * 29 + 7);
+          const x = (i + 0.5) / gx * W + (h - 0.5) * W * 0.02;
+          const y = (j + 0.5) / gy * H + (hash(i, j) - 0.5) * H * 0.03;
+          const phase = Math.sin(t * 0.0006 + h * 40);
+          const flare = Math.max(0, phase - 0.86) / 0.14;
+          const base = 0.10 + h * 0.10;
+          if (flare > 0) {
+            const r = (2 + flare * 7) * dprs[0];
+            const g = ctx.createRadialGradient(x, y, 0, x, y, r * 3.2);
+            g.addColorStop(0, "rgba(159,194,232," + (0.75 * flare).toFixed(3) + ")");
+            g.addColorStop(1, "rgba(159,194,232,0)");
+            ctx.fillStyle = g;
+            ctx.beginPath(); ctx.arc(x, y, r * 3.2, 0, 7); ctx.fill();
+            ctx.fillStyle = "rgba(232,240,255," + (0.5 + 0.5 * flare).toFixed(3) + ")";
+            ctx.beginPath(); ctx.arc(x, y, (1 + flare * 1.6) * dprs[0], 0, 7); ctx.fill();
+          } else {
+            ctx.fillStyle = "rgba(150,160,180," + base.toFixed(3) + ")";
+            ctx.beginPath(); ctx.arc(x, y, 1.1 * dprs[0], 0, 7); ctx.fill();
+          }
+        }
+      }
+    };
+
+    // 02: organic flow lines (human) merging into a machine grid
+    const draw2 = (c, t) => {
+      const ctx = c.getContext("2d"), W = c.width, H = c.height;
+      ctx.fillStyle = "#0D0F15"; ctx.fillRect(0, 0, W, H);
+      // right half: grid
+      ctx.strokeStyle = "rgba(92,130,190,0.22)"; ctx.lineWidth = 1;
+      const cell = W / 22;
+      for (let x = W * 0.52; x < W; x += cell) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke(); }
+      for (let y = 0; y < H; y += cell) { ctx.beginPath(); ctx.moveTo(W * 0.52, y); ctx.lineTo(W, y); ctx.stroke(); }
+      // grid pulses
+      for (let k = 0; k < 14; k++) {
+        const h = hash(k * 31 + 5, 77);
+        const gi = Math.floor(h * 10), gj = Math.floor(hash(k, 13) * (H / cell));
+        const pulse = 0.5 + 0.5 * Math.sin(t * 0.001 + h * 50);
+        ctx.fillStyle = "rgba(159,194,232," + (0.08 + 0.3 * pulse).toFixed(3) + ")";
+        ctx.fillRect(W * 0.52 + gi * cell, gj * cell, cell, cell);
+      }
+      // left half: organic waves flowing into the grid
+      for (let l = 0; l < 9; l++) {
+        const yBase = H * (0.12 + l * 0.095);
+        ctx.beginPath();
+        for (let x = 0; x <= W * 0.62; x += 6) {
+          const p = x / (W * 0.62);
+          const amp = H * 0.06 * (1 - p * 0.85);
+          const y = yBase + Math.sin(x * 0.012 + t * 0.0008 + l * 1.7) * amp + Math.sin(x * 0.031 + t * 0.0005 + l) * amp * 0.5;
+          if (x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+        }
+        ctx.strokeStyle = "rgba(200,215,240," + (0.16 + 0.05 * Math.sin(t * 0.001 + l)).toFixed(3) + ")";
+        ctx.lineWidth = 1.2 * dprs[1];
+        ctx.stroke();
+      }
+    };
+
+    // 03: 「お前じゃ無理」 dissolving → 「お前じゃなきゃ無理」 emerging
+    const draw3 = (c, t) => {
+      const ctx = c.getContext("2d"), W = c.width, H = c.height;
+      ctx.fillStyle = "#0D0F15"; ctx.fillRect(0, 0, W, H);
+      const cyc = (t % 6000) / 6000; // 0..1
+      const k = cyc < 0.5 ? cyc * 2 : (1 - cyc) * 2; // ping-pong
+      const ease = k * k * (3 - 2 * k);
+      const fs1 = W * 0.062;
+      ctx.textAlign = "center"; ctx.textBaseline = "middle";
+      // old phrase: dim, struck, dissolving upward
+      ctx.save();
+      ctx.globalAlpha = 0.55 * (1 - ease);
+      ctx.font = "700 " + fs1 + "px 'Noto Sans JP', sans-serif";
+      ctx.fillStyle = "rgba(150,158,175,0.85)";
+      const y1 = H * 0.38 - ease * H * 0.06;
+      ctx.fillText("「お前じゃ無理」", W / 2, y1);
+      ctx.strokeStyle = "rgba(92,130,190,0.8)"; ctx.lineWidth = Math.max(1.5, fs1 * 0.045);
+      ctx.beginPath(); ctx.moveTo(W / 2 - fs1 * 4.1, y1); ctx.lineTo(W / 2 + fs1 * 4.1, y1); ctx.stroke();
+      ctx.restore();
+      // scan glitch slices on old phrase
+      for (let g = 0; g < 5; g++) {
+        const gy = H * (0.3 + hash(g, Math.floor(t / 90)) * 0.16);
+        ctx.fillStyle = "rgba(13,15,21," + (0.5 * (1 - ease)).toFixed(3) + ")";
+        ctx.fillRect(0, gy, W, 2 * dprs[2]);
+      }
+      // new phrase: emerging bright
+      ctx.save();
+      ctx.globalAlpha = 0.15 + 0.85 * ease;
+      ctx.font = "800 " + fs1 * 1.06 + "px 'Noto Sans JP', sans-serif";
+      const y2 = H * 0.62 + (1 - ease) * H * 0.05;
+      ctx.fillStyle = "#E8EAEF";
+      ctx.fillText("「お前じゃなきゃ無理」", W / 2, y2);
+      ctx.fillStyle = "#9FC2E8";
+      const w1 = ctx.measureText("「お前じゃ").width, wN = ctx.measureText("なきゃ").width;
+      const full = ctx.measureText("「お前じゃなきゃ無理」").width;
+      ctx.fillText("なきゃ", W / 2 - full / 2 + w1 + wN / 2, y2);
+      ctx.restore();
+    };
+
+    let last2 = 0;
+    const io = new IntersectionObserver((ents) => {
+      ents.forEach((e) => { e.target.__vis = e.isIntersecting; });
+    }, { threshold: 0 });
+    canvases.forEach((c) => { c.__vis = true; io.observe(c); });
+    this._vio = io;
+    const loop = (now) => {
+      this._vraf = requestAnimationFrame(loop);
+      if (now - last2 < 50) return;
+      last2 = now;
+      if (canvases[0].__vis) draw1(canvases[0], now);
+      if (canvases[1].__vis) draw2(canvases[1], now);
+      if (canvases[2].__vis) draw3(canvases[2], now);
+    };
+    this._vraf = requestAnimationFrame(loop);
+  }
+
+  componentWillUnmount() {
+    if (this._io) this._io.disconnect();
+    if (this._raf) cancelAnimationFrame(this._raf);
+    if (this._vraf) cancelAnimationFrame(this._vraf);
+    if (this._onVResize) window.removeEventListener("resize", this._onVResize);
+    if (this._vio) this._vio.disconnect();
+    if (this._hio) this._hio.disconnect();
+    if (this._onResize) window.removeEventListener("resize", this._onResize);
+  }
+
+  _setupReveal() {
+    if (this.props.reveal === false) return;
+    const els = document.querySelectorAll("[data-reveal]");
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.style.opacity = "1";
+          e.target.style.transform = "translateY(0)";
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
+    els.forEach((el) => {
+      el.style.opacity = "0";
+      el.style.transform = "translateY(24px)";
+      el.style.transition = "opacity 1s cubic-bezier(0.19,1,0.22,1), transform 1s cubic-bezier(0.19,1,0.22,1)";
+      io.observe(el);
+    });
+    this._io = io;
+  }
+
+  _palette() {
+    const p = this.props.asciiPalette ?? "blue";
+    if (p === "ember") return ["rgba(138,74,51,0.55)", "rgba(192,78,43,0.8)", "#E8956B", "#FFE8D8"];
+    if (p === "mono") return ["rgba(120,125,135,0.5)", "rgba(170,175,185,0.75)", "#CDD3DE", "#FFFFFF"];
+    return ["rgba(70,100,160,0.55)", "rgba(92,130,190,0.85)", "#9FC2E8", "#E8F2FF"];
+  }
+
+  _startAscii() {
+    const c = this._canvas;
+    if (!c) { setTimeout(() => this._startAscii(), 120); return; }
+    const ctx = c.getContext("2d");
+    let W = 0, H = 0, dpr = 1;
+    const resize = () => {
+      const r = c.getBoundingClientRect();
+      dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+      W = Math.max(1, Math.round(r.width * dpr));
+      H = Math.max(1, Math.round(r.height * dpr));
+      c.width = W; c.height = H;
+    };
+    resize();
+    this._onResize = resize;
+    window.addEventListener("resize", resize);
+
+    // value noise 3D
+    const hash3 = (x, y, z) => {
+      let n = (x | 0) * 374761393 + (y | 0) * 668265263 + (z | 0) * 1274126177;
+      n = Math.imul(n ^ (n >>> 13), 1274126177);
+      return ((n ^ (n >>> 16)) >>> 0) / 4294967295;
+    };
+    const sm = (t) => t * t * (3 - 2 * t);
+    const noise3 = (x, y, z) => {
+      const xi = Math.floor(x), yi = Math.floor(y), zi = Math.floor(z);
+      const xf = x - xi, yf = y - yi, zf = z - zi;
+      const u = sm(xf), v = sm(yf), w = sm(zf);
+      const c000 = hash3(xi, yi, zi), c100 = hash3(xi + 1, yi, zi);
+      const c010 = hash3(xi, yi + 1, zi), c110 = hash3(xi + 1, yi + 1, zi);
+      const c001 = hash3(xi, yi, zi + 1), c101 = hash3(xi + 1, yi, zi + 1);
+      const c011 = hash3(xi, yi + 1, zi + 1), c111 = hash3(xi + 1, yi + 1, zi + 1);
+      const x00 = c000 + (c100 - c000) * u, x10 = c010 + (c110 - c010) * u;
+      const x01 = c001 + (c101 - c001) * u, x11 = c011 + (c111 - c011) * u;
+      const y0 = x00 + (x10 - x00) * v, y1 = x01 + (x11 - x01) * v;
+      return y0 + (y1 - y0) * w;
+    };
+    const fbm = (x, y, z) => 0.55 * noise3(x, y, z) + 0.3 * noise3(x * 2.1, y * 2.1, z * 2.1) + 0.15 * noise3(x * 4.3, y * 4.3, z * 4.3);
+
+    const ramp = " ;:-=+xX80@#";
+    let last = 0;
+    let heroVis = true;
+    const hio = new IntersectionObserver((ents) => { heroVis = ents[0].isIntersecting; }, { threshold: 0 });
+    hio.observe(c);
+    this._hio = hio;
+    const draw = (now) => {
+      this._raf = requestAnimationFrame(draw);
+      if (!heroVis || now - last < 66) return;
+      last = now;
+      const cols = this._palette();
+      const a = now * 0.00008;
+      const drift = now * 0.00002;
+      ctx.clearRect(0, 0, W, H);
+      const fs = 12 * dpr;
+      ctx.font = fs + "px monospace";
+      ctx.textBaseline = "top";
+      const cw = 9 * dpr, ch = 15 * dpr;
+      const nx = Math.ceil(W / cw), ny = Math.ceil(H / ch);
+      const cx = W * 0.66, cy = H * 0.5;
+      const R = Math.min(W, H) * 0.44;
+      const cosA = Math.cos(a), sinA = Math.sin(a);
+      for (let j = 0; j < ny; j++) {
+        const py = j * ch + ch * 0.5;
+        for (let i = 0; i < nx; i++) {
+          const px = i * cw + cw * 0.5;
+          const dx = (px - cx) / R, dy = (py - cy) / R;
+          const r2 = dx * dx + dy * dy;
+          if (r2 <= 1) {
+            const z = Math.sqrt(1 - r2);
+            const X = dx * cosA + z * sinA;
+            const Z = -dx * sinA + z * cosA;
+            let v = fbm(X * 2.2 + drift, dy * 2.2, Z * 2.2);
+            v *= 0.3 + 0.75 * z;
+            if (v > 0.24) {
+              const t01 = Math.min(1, (v - 0.24) / 0.5);
+              const chIdx = Math.min(ramp.length - 1, 1 + Math.floor(t01 * (ramp.length - 1)));
+              ctx.fillStyle = t01 > 0.82 ? cols[3] : t01 > 0.58 ? cols[2] : t01 > 0.3 ? cols[1] : cols[0];
+              ctx.fillText(ramp[chIdx], px - cw * 0.5, py - ch * 0.5);
+            }
+          } else if (r2 < 3.4) {
+            const h = hash3(i * 7 + 1, j * 13 + 5, 99);
+            if (h > 0.982) {
+              const fl = 0.5 + 0.5 * Math.sin(now * 0.001 + h * 60);
+              ctx.fillStyle = "rgba(120,150,200," + (0.1 + 0.22 * fl).toFixed(3) + ")";
+              ctx.fillText(h > 0.994 ? "+" : ";", px - cw * 0.5, py - ch * 0.5);
+            }
+          }
+        }
+      }
+    };
+    this._raf = requestAnimationFrame(draw);
+  }
+}
+</script>
+<script>
+(async () => {
+  if (!document.title || !document.title.trim()) document.title = "ENTHUSIASTS v3";
+  // Prepend so page-supplied @page / break rules (deck-stage's margin:0,
+  // author CSS) keep source-order precedence over the baseline.
+  const baseCss = document.createElement('style');
+  baseCss.textContent = "@media print {\n  figure, table { break-inside: avoid; }\n  *, *::before, *::after {\n    print-color-adjust: exact; -webkit-print-color-adjust: exact;\n    backdrop-filter: none !important; -webkit-backdrop-filter: none !important;\n    animation-delay: -99s !important; animation-duration: .001s !important;\n    animation-iteration-count: 1 !important; animation-fill-mode: both !important;\n    animation-play-state: running !important; transition-duration: 0s !important;\n  }\n}";
+  document.head.prepend(baseCss);
+  if (document.readyState === 'loading') {
+    await new Promise((r) => document.addEventListener('DOMContentLoaded', r, { once: true }));
+  }
+  let ds = document.querySelector('deck-stage');
+  // whenDefined never resolves when nothing registers the element, so only
+  // await it when a <deck-stage> tag exists (and race a timeout regardless).
+  if (ds && !customElements.get('deck-stage')) {
+    try {
+      await Promise.race([
+        customElements.whenDefined('deck-stage'),
+        new Promise((r) => setTimeout(r, 3000)),
+      ]);
+    } catch (e) {}
+    ds = document.querySelector('deck-stage');
+  }
+  // dc-runtime assigns window.DCLogic at init and mounts into #dc-root on
+  // DOMContentLoaded; settle on that subtree so React has rendered before
+  // print(). Non-DC pages fall through to weighing body.
+  const isDc = !ds && 'DCLogic' in window;
+  const settleRoot = ds || (isDc ? document.getElementById('dc-root') : null) || document.body;
+  if (settleRoot) {
+    // Weigh only content children — skip script/style/template so inline
+    // Babel/CSS doesn't register as stable "content" before the framework
+    // has mounted anything.
+    const MEDIA = 'img,svg,canvas,video,picture,iframe,embed,object';
+    const weigh = () => {
+      let text = 0, media = 0;
+      for (const c of settleRoot.children) {
+        const t = c.tagName;
+        if (t === 'SCRIPT' || t === 'STYLE' || t === 'TEMPLATE') continue;
+        text += (c.textContent || '').trim().length;
+        media += c.querySelectorAll(MEDIA).length + (c.matches(MEDIA) ? 1 : 0);
+      }
+      return text + media * 100;
+    };
+    // "Non-zero and stable" alone is not sufficient to mean rendered: generic
+    // body can carry a static shell while async main content is pending, and
+    // #dc-root can carry the root DC's static text while child refs are still
+    // .sc-placeholder boxes. Gate generic on readyState 'complete', and never
+    // accept stability while a dc-runtime placeholder is present.
+    const isGeneric = settleRoot === document.body;
+    const deadline = Date.now() + 15000;
+    let last = -1, stable = 0;
+    while (Date.now() < deadline) {
+      const n = weigh();
+      const ready =
+        (!isGeneric || document.readyState === 'complete') &&
+        !settleRoot.querySelector('.sc-placeholder');
+      if (n > 0 && n === last && ready) { if (++stable >= 2) break; } else { stable = 0; }
+      last = n;
+      await new Promise((r) => setTimeout(r, 250));
+    }
+  }
+  // Project support.js may predate runtime default-seeding; push via bridge.
+  if (isDc && window.__dcSetProps && window.__dcRootName) {
+    try {
+      const dpEl = document.querySelector('script[data-dc-script]');
+      const meta = JSON.parse((dpEl && dpEl.getAttribute('data-props')) || '{}');
+      const bag = {};
+      for (const k in meta)
+        if (k[0] !== '$' && meta[k] && meta[k].default !== undefined)
+          bag[k] = meta[k].default;
+      if (Object.keys(bag).length) {
+        window.__dcSetProps(window.__dcRootName(), bag);
+        await new Promise((r) => setTimeout(r, 50));
+      }
+    } catch (e) {}
+  }
+  // Reveal content gated on scroll or visibility before printing. Lazy <img>,
+  // IntersectionObserver fade-ins, and collapsed <details> don't render while
+  // off-screen, so a long page would print with them blank or closed. Open
+  // every <details>, force native-lazy images eager, and scroll the document
+  // through its full height to trip lazy-load + IO; then wait (bounded) for the
+  // newly-triggered images. Inert for deck-stage (slides aren't scroll-gated).
+  try {
+    for (const d of document.querySelectorAll('details')) d.open = true;
+    for (const img of document.querySelectorAll('img[loading="lazy"]'))
+      img.loading = 'eager';
+    const scroller = document.scrollingElement || document.documentElement;
+    const full = Math.max(scroller.scrollHeight, document.body.scrollHeight);
+    const step = window.innerHeight || 800;
+    for (let y = 0; y <= full; y += step) {
+      window.scrollTo(0, y);
+      await new Promise((r) => requestAnimationFrame(r));
+    }
+    window.scrollTo(0, 0);
+    await Promise.race([
+      Promise.all(
+        [...document.images].map((img) =>
+          img.complete
+            ? null
+            : new Promise((res) => {
+                img.addEventListener('load', res, { once: true });
+                img.addEventListener('error', res, { once: true });
+              })
+        )
+      ),
+      new Promise((r) => setTimeout(r, 4000)),
+    ]);
+  } catch (e) {}
+  try { await document.fonts.ready; } catch (e) {}
+  // Jump every animation to its end state so print() never captures a slide
+  // mid-entrance. Ordering matters: the 0s-transition style must be live
+  // BEFORE data-deck-active is set so attribute-keyed transitions don't
+  // start a (now-0s) run from the pre-active base.
+  const st = document.createElement('style');
+  st.textContent = '*,*::before,*::after{animation-delay:-99s !important;animation-duration:.001s !important;animation-iteration-count:1 !important;animation-fill-mode:both !important;animation-play-state:running !important;transition-duration:0s !important}';
+  document.head.appendChild(st);
+  for (const d of document.querySelectorAll('deck-stage')) {
+    for (const c of d.children) {
+      const t = c.tagName;
+      if (t === 'SCRIPT' || t === 'STYLE' || t === 'TEMPLATE') continue;
+      c.setAttribute('data-deck-active', '');
+    }
+  }
+  // Re-append deck-stage's @page last so no author @page can add a margin and
+  // spill each full-bleed slide onto two sheets. Backstop for old copies.
+  if (ds) {
+    let pg = document.getElementById('deck-stage-print-page');
+    if (!pg) {
+      pg = document.createElement('style');
+      pg.textContent = '@page{size:' + (+ds.getAttribute('width') || 1920) +
+        'px ' + (+ds.getAttribute('height') || 1080) + 'px;margin:0}';
+    }
+    document.body.appendChild(pg);
+  }
+  try {
+    const sweep = () => {
+      for (const a of document.getAnimations()) {
+        try { a.finish(); } catch (e) {
+          try { a.currentTime = (a.effect && a.effect.getComputedTiming().duration) || 0; a.pause(); } catch (e2) {}
+        }
+      }
+    };
+    sweep();
+    await new Promise((r) => requestAnimationFrame(r));
+    sweep();
+    await new Promise((r) => requestAnimationFrame(r));
+  } catch (e) {}
+  // Size the PDF page to the rendered design unless the file opted into
+  // standard paper via @page{size:letter|A4|…}. Decks own their own @page.
+  // Wrappers (body, …) lose padding+margin so the frame sits at (0,0); the
+  // frame itself loses only margin — its padding is INSIDE the measured
+  // rect and must stay, or content shifts and leaves a gap at bottom/right.
+  var __m = null;
+  try { __m = (() => {
+  var STAMP = true;
+  var docEl = document.documentElement;
+  var doc = { width: docEl.scrollWidth, height: docEl.scrollHeight };
+
+  var ds = document.querySelector('deck-stage');
+  if (ds) {
+    var dw = Number(ds.getAttribute('width')) || 1920;
+    var dh = Number(ds.getAttribute('height')) || 1080;
+    var n = typeof ds.length === 'number' ? ds.length : ds.children.length;
+    var idx = typeof ds.index === 'number' ? ds.index : 0;
+    var frames = [];
+    for (var i = 0; i < n; i++) frames.push({ left: 0, top: 0, width: dw, height: dh });
+    return { kind: 'deck', source: 'declared', doc: doc, frames: frames,
+      authored: frames.map(function(){return{width:true,height:true}}),
+      deck: { width: dw, height: dh, slideCount: n, index: idx },
+      signals: { paperPage: false, pxPage: false } };
+  }
+
+  // Declared kind: a doc-page tag names the kind outright, so no signal
+  // heuristics run (like the deck branch above, signals report false —
+  // they describe inferred classifications only). The tag alone is not
+  // trusted: the element must have upgraded (shadowRoot present), so a
+  // leftover tag whose script was deleted falls through to the heuristics
+  // that handle plain markup.
+  var stageSx = window.scrollX || 0, stageSy = window.scrollY || 0;
+  var dp = document.querySelector('doc-page');
+  if (dp && dp.shadowRoot) {
+    // Crop to the sheet, not the host — the desk around it is screen-only
+    // chrome that must not land in PNG exports.
+    var sheet = dp.shadowRoot.querySelector('.sheet');
+    var sr = (sheet || dp).getBoundingClientRect();
+    return { kind: 'paper-doc', source: 'declared', doc: doc,
+      frames: [{ left: sr.left + stageSx, top: sr.top + stageSy,
+        width: sr.width, height: sr.height }],
+      authored: [{ width: false, height: false }],
+      signals: { paperPage: false, pxPage: false } };
+  }
+  var paperPage = false, pxPage = false;
+  var eachRule = function (fn) {
+    for (var s = 0; s < document.styleSheets.length; s++) {
+      var rs; try { rs = document.styleSheets[s].cssRules; } catch (e) { continue; }
+      for (var r = 0; r < rs.length; r++) {
+        fn(rs[r]);
+        if (rs[r].cssRules) for (var n = 0; n < rs[r].cssRules.length; n++) fn(rs[r].cssRules[n]);
+      }
+    }
+  };
+  eachRule(function (r) {
+    if (r.type !== 6) return;
+    var m = /\bsize\s*:\s*([^;}]+)/i.exec(r.cssText || '');
+    if (!m) return;
+    if (/\b(letter|a[3-5]|legal|ledger)\b/i.test(m[1])) paperPage = true;
+    if (/\d+(?:\.\d+)?px\b/i.test(m[1])) pxPage = true;
+  });
+  var signals = { paperPage: paperPage, pxPage: pxPage };
+
+  var pxVal = function (v) {
+    var m = /^(\d+(?:\.\d+)?)px$/.exec(v || ''); return m ? +m[1] : 0;
+  };
+  var authoredPx = function (el, prop) {
+    if (pxVal(el.style[prop])) return true;
+    var attr = el.getAttribute(prop);
+    if (attr && /^\d+$/.test(attr)) return true;
+    var hit = false;
+    eachRule(function (r) {
+      if (hit || r.type !== 1 || !r.style) return;
+      try { if (el.matches(r.selectorText) && pxVal(r.style[prop])) hit = true; } catch (e) {}
+    });
+    return hit;
+  };
+
+  var el = document.body, rootPxW = false;
+  for (;;) {
+    var kids = [];
+    for (var c = 0; c < el.children.length; c++) {
+      var t = el.children[c].tagName;
+      if (t !== 'SCRIPT' && t !== 'STYLE' && t !== 'TEMPLATE') kids.push(el.children[c]);
+    }
+    if (kids.length !== 1 || !(kids[0] instanceof HTMLElement)) break;
+    if (STAMP) el.setAttribute('data-om-frame-wrap', '');
+    el = kids[0];
+    rootPxW = authoredPx(el, 'width');
+    if (rootPxW) break;
+  }
+  if (!rootPxW) rootPxW = authoredPx(el, 'width');
+
+  // @page{size:letter} alone is a flowing doc; with a px-width root it's a
+  // fixed sheet pretending to be paper — fall through and size to render.
+  if (paperPage && !rootPxW) {
+    return { kind: 'paper-doc', source: 'inferred', doc: doc, signals: signals,
+      frames: [{ left: 0, top: 0, width: doc.width, height: doc.height }],
+      authored: [{ width: false, height: false }] };
+  }
+
+  var sx = window.scrollX || 0, sy = window.scrollY || 0;
+  var rectOf = function (e) {
+    var r = e.getBoundingClientRect();
+    var oy; try { oy = getComputedStyle(e).overflowY; } catch (err) {}
+    var h = oy === 'visible' ? Math.max(r.height, e.scrollHeight || 0) : r.height;
+    return { left: r.left + sx, top: r.top + sy, width: r.width, height: h };
+  };
+
+  // Multi-frame: ≥2 visible non-fixed children, each with authored px width
+  // AND height, all within ±2px of each other. Off unless the page opts in
+  // via data-om-multi-frame on the stop element — guards against card grids
+  // and pricing tables that match the geometry but aren't separate canvases.
+  if (el.hasAttribute('data-om-multi-frame')) {
+    var cands = [];
+    for (var k = 0; k < el.children.length; k++) {
+      var ch = el.children[k];
+      var cs; try { cs = getComputedStyle(ch); } catch (e) { continue; }
+      if (cs.display === 'none' || cs.visibility === 'hidden' || cs.position === 'fixed') continue;
+      var rc = rectOf(ch);
+      if (rc.width < 2 || rc.height < 2) continue;
+      if (!authoredPx(ch, 'width') || !authoredPx(ch, 'height')) continue;
+      cands.push(rc);
+    }
+    if (cands.length >= 2) {
+      var w0 = cands[0].width, h0 = cands[0].height, ok = true;
+      for (var q = 1; q < cands.length; q++)
+        if (Math.abs(cands[q].width - w0) > 2 || Math.abs(cands[q].height - h0) > 2) ok = false;
+      if (ok) return { kind: 'multi-frame', source: 'inferred', doc: doc, signals: signals,
+        frames: cands, authored: cands.map(function(){return{width:true,height:true}}) };
+    }
+  }
+
+  if (STAMP) el.setAttribute('data-om-frame', '');
+  return { kind: 'single-canvas', source: 'inferred', doc: doc, signals: signals,
+    frames: [rectOf(el)],
+    authored: [{ width: rootPxW, height: authoredPx(el, 'height') }] };
+})(); } catch (e) {}
+  var frame = null;
+  if (__m && __m.kind === 'single-canvas') {
+    var f = __m.frames && __m.frames[0];
+    if (f && f.width >= 200 && f.height >= 200) {
+      frame = f;
+      var fst = document.createElement('style');
+      fst.textContent = '@media print{@page{size:' + Math.ceil(f.width) + 'px ' +
+        Math.ceil(f.height) + 'px;margin:0}' +
+        'html,body,[data-om-frame-wrap]{padding:0!important;margin:0!important;background:none!important}' +
+        '[data-om-frame]{margin:0!important}}';
+      document.body.appendChild(fst);
+    }
+  }
+  // Relax break-inside on oversized elements. An element taller than a
+  // printable page can't honor break-inside: avoid — browsers either overflow
+  // it or push it whole to the next page, leaving a blank gap, then break it
+  // anyway at an arbitrary point. After the final layout (content revealed,
+  // animations jumped), find elements taller than a page that still compute
+  // break-inside: avoid and reset them to auto, so the browser breaks them at
+  // their children's boundaries instead (children keep their own avoid). PAGE_PX
+  // is a conservative portrait estimate at 96 CSS px/in — Letter/A4 usable
+  // height minus our 0.5in margins — so only clearly-oversized elements are
+  // touched and under-page elements still stay whole. Skipped for decks (slides
+  // are sized to the page) and for fixed-size canvases (frame set, or an author
+  // px-based @page) — runs as before for flowing docs on letter/A4.
+  try {
+    if (!ds && !frame && !(__m && __m.signals && __m.signals.pxPage)) {
+      const PAGE_PX = 1024;
+      // Our print defaults add a real @page margin only when the source has
+      // no @page of its own; computed style can't tell us (it reports screen
+      // media), so read the injected rule directly.
+      const defaults = document.querySelector('style[data-omelette-print-defaults]');
+      const pageInset = /@page\s*\{[^}]*margin/.test(defaults ? defaults.textContent || '' : '');
+      const SEL = 'section,article,figure,table,pre,blockquote,[class~="card" i],[class~="page" i],[class~="sheet" i]';
+      for (const el of document.body.querySelectorAll(SEL)) {
+        if (el instanceof HTMLElement && el.offsetHeight > PAGE_PX) {
+          el.setAttribute('data-om-oversized', '');
+          // Fake-paged docs simulate sheets with over-tall break-after:page
+          // boxes; honoring the break spills half-blank pages and ends a
+          // colored box mid-sheet. Flow them, and (only when we own the page
+          // inset) drop the redundant padding/background via the rule below.
+          const cs = getComputedStyle(el);
+          if (cs.breakAfter === 'page' || cs.pageBreakAfter === 'always') {
+            el.setAttribute('data-om-fakepage', '');
+          }
+        }
+      }
+      const ost = document.createElement('style');
+      ost.textContent = '@media print{' +
+        '[data-om-oversized]{break-inside:auto !important;page-break-inside:auto !important}' +
+        '[data-om-fakepage]{break-after:auto !important;page-break-after:auto !important}' +
+        (pageInset ? '[data-om-fakepage]{padding:0 !important;background:none !important}' : '') +
+        '}';
+      document.head.appendChild(ost);
+    }
+  } catch (e) {}
+  // macOS Preview renders Skia-PDF Luminosity soft-masks as opaque grey boxes;
+  // swap the CSS that triggers them for Preview-safe forms.
+  try {
+    for (const el of document.body.querySelectorAll('*')) {
+      const cs = getComputedStyle(el);
+
+      if (cs.boxShadow !== 'none' && cs.filter === 'none') {
+        const outs = [], kept = [];
+        for (const s of cs.boxShadow.split(/,(?![^(]*[)])/)) {
+          const t = s.trim();
+          const m = t.match(/^(rgba?[(][^)]+[)]) (-?[0-9.]+px) (-?[0-9.]+px) ([0-9.]+px) -?[0-9.]+px$/);
+          if (m && parseFloat(m[4]) > 0) outs.push('drop-shadow(' + m[2] + ' ' + m[3] + ' ' + m[4] + ' ' + m[1] + ')');
+          else kept.push(t);
+        }
+        if (outs.length) {
+          el.style.setProperty('filter', outs.join(' '), 'important');
+          el.style.setProperty('box-shadow', kept.join(', ') || 'none', 'important');
+        }
+      }
+
+      const mask = cs.maskImage && cs.maskImage !== 'none' ? cs.maskImage : cs.webkitMaskImage;
+      if (mask && mask !== 'none' && cs.filter === 'none') el.style.setProperty('filter', 'opacity(1)', 'important');
+    }
+  } catch (e) {}
+  setTimeout(() => { try { window.print(); } catch (e) {} }, 200);
+})();
+</script>
+</body>
+</html>
