@@ -1,0 +1,40 @@
+.row {
+  display: flex;
+  align-items: baseline;
+  gap: 22px;
+}
+
+.num {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: var(--accent);
+}
+
+.label {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  color: rgba(232, 234, 239, 0.55);
+}
+
+.hairline {
+  flex: 1 1 0;
+  height: 1px;
+  background: var(--hairline);
+  align-self: center;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1.8s cubic-bezier(0.19, 1, 0.22, 1) 0.25s;
+}
+
+:global(.rv-in) .hairline {
+  transform: scaleX(1);
+}
+
+.jp {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: rgba(232, 234, 239, 0.35);
+}

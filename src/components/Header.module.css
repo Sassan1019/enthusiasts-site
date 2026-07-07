@@ -1,0 +1,117 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 55;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 22px 4.5vw;
+  background: linear-gradient(to bottom, rgba(8, 9, 13, 0.9), rgba(8, 9, 13, 0));
+  backdrop-filter: blur(3px);
+  border-bottom: 1px solid transparent;
+  transition:
+    padding 0.5s cubic-bezier(0.19, 1, 0.22, 1),
+    background 0.5s ease,
+    border-color 0.5s ease,
+    backdrop-filter 0.5s ease;
+}
+
+.scrolled {
+  padding: 15px 4.5vw;
+  background: rgba(8, 9, 13, 0.78);
+  backdrop-filter: blur(14px);
+  border-bottom-color: rgba(232, 234, 239, 0.07);
+}
+
+.logo {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  letter-spacing: 0.18em;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 800;
+  white-space: nowrap;
+  flex: 0 0 auto;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 30px;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 0;
+}
+
+.navLinks {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.navLink {
+  position: relative;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  color: rgba(232, 234, 239, 0.5);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  white-space: nowrap;
+  padding: 4px 0;
+}
+
+.navLink::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: rgba(159, 194, 232, 0.75);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.45s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.navLink:hover {
+  color: var(--text);
+}
+
+.navLink.active {
+  color: var(--text);
+}
+
+.navLink.active::after {
+  transform: scaleX(1);
+}
+
+.contactLink {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  color: var(--text);
+  text-decoration: none;
+  transition:
+    color 0.35s ease,
+    background 0.35s ease,
+    border-color 0.35s ease;
+  white-space: nowrap;
+  border: 1px solid rgba(232, 234, 239, 0.3);
+  padding: 10px 20px;
+}
+
+.contactLink:hover {
+  background: var(--text);
+  color: var(--bg);
+  border-color: var(--text);
+}
+
+@media (max-width: 760px) {
+  .navLinks {
+    display: none;
+  }
+}

@@ -1,0 +1,49 @@
+.bridge {
+  position: relative;
+  padding: clamp(150px, 20vw, 280px) 6vw;
+  text-align: center;
+  background: radial-gradient(900px 520px at 50% 50%, rgba(92, 130, 190, 0.055), rgba(8, 9, 13, 0) 72%);
+}
+
+/* vertical threads stitching this moment to the sections around it */
+.bridge::before,
+.bridge::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 1px;
+  height: clamp(52px, 8vw, 104px);
+}
+
+.bridge::before {
+  top: 0;
+  background: linear-gradient(to bottom, rgba(159, 194, 232, 0), rgba(159, 194, 232, 0.45));
+}
+
+.bridge::after {
+  bottom: 0;
+  background: linear-gradient(to top, rgba(159, 194, 232, 0), rgba(159, 194, 232, 0.45));
+}
+
+.statement {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: clamp(28px, 4.8vw, 58px);
+  line-height: 1.7;
+  letter-spacing: 0.06em;
+  font-feature-settings: "palt" 1;
+  color: var(--text);
+  margin: 0;
+  text-wrap: balance;
+}
+
+.sub {
+  margin: clamp(24px, 3.5vw, 40px) auto 0;
+  font-family: var(--font-sans);
+  font-size: clamp(13px, 1.3vw, 14.5px);
+  line-height: 2.4;
+  letter-spacing: 0.06em;
+  color: rgba(232, 234, 239, 0.5);
+  max-width: 560px;
+  text-wrap: pretty;
+}
