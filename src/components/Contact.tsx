@@ -41,9 +41,9 @@ export default function Contact() {
           <Reveal>
             <div className={styles.intro}>
               <h2 className={styles.title}>
-                思想に共鳴したら、
+                ご質問・ご相談などお気軽に
                 <br />
-                静かにご連絡ください。
+                お問い合わせくださいませ。
               </h2>
               <p className={styles.lead}>
                 プロジェクトへの参加、協業、取材のご相談など。お送りいただいた内容は担当者が確認のうえ、折り返しご連絡いたします。
