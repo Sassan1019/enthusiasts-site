@@ -64,7 +64,7 @@
   font-family: var(--font-sans);
   font-size: 10.5px;
   letter-spacing: 0.22em;
-  color: rgba(232, 234, 239, 0.48);
+  color: rgba(232, 234, 239, 0.6);
 }
 
 .required {
@@ -104,6 +104,22 @@
   border-color: var(--accent-light);
 }
 
+/* エラーは赤ではなく、インクを強めて明確に伝える（§12 線と面の文法） */
+.inputError {
+  border-bottom-color: rgba(232, 234, 239, 0.85);
+}
+
+.textareaError {
+  border-color: rgba(232, 234, 239, 0.85);
+}
+
+.errorText {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.8;
+  color: rgba(232, 234, 239, 0.92);
+}
+
 .checkboxRow {
   display: flex;
   gap: 14px;
@@ -123,7 +139,7 @@
   font-family: var(--font-sans);
   font-size: 13px;
   line-height: 1.9;
-  color: rgba(232, 234, 239, 0.58);
+  color: rgba(232, 234, 239, 0.68);
 }
 
 .checkboxLabel a {

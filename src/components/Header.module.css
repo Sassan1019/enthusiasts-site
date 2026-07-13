@@ -27,6 +27,8 @@
 }
 
 .logo {
+  position: relative;
+  z-index: 2;
   font-family: var(--font-sans);
   font-size: 15px;
   letter-spacing: 0.18em;
@@ -38,6 +40,8 @@
 }
 
 .nav {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-wrap: nowrap;
   gap: 30px;
@@ -57,7 +61,7 @@
   font-family: var(--font-sans);
   font-size: 10px;
   letter-spacing: 0.24em;
-  color: rgba(232, 234, 239, 0.5);
+  color: rgba(232, 234, 239, 0.55);
   text-decoration: none;
   transition: color 0.3s ease;
   white-space: nowrap;
@@ -110,8 +114,120 @@
   border-color: var(--text);
 }
 
+/* MENU トグル — アイコンではなく言葉で（サイトの小声ラベル文法） */
+.menuBtn {
+  display: none;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  color: var(--text);
+  background: transparent;
+  border: none;
+  padding: 10px 2px;
+  cursor: pointer;
+  min-height: 44px;
+}
+
+/* 全画面の静かなオーバーレイ（ヘッダー z:55 の直下） */
+.menuPanel {
+  position: fixed;
+  inset: 0;
+  z-index: 54;
+  background: rgba(8, 9, 13, 0.97);
+  backdrop-filter: blur(16px);
+  display: flex;
+  align-items: center;
+  padding: 96px 8vw 56px;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.45s cubic-bezier(0.19, 1, 0.22, 1),
+    visibility 0s linear 0.45s;
+}
+
+.menuPanelOpen {
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity 0.45s cubic-bezier(0.19, 1, 0.22, 1),
+    visibility 0s;
+}
+
+.menuList {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 480px;
+}
+
+.menuItem {
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+  padding: 22px 2px;
+  border-bottom: 1px solid rgba(232, 234, 239, 0.1);
+  text-decoration: none;
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 0.6s cubic-bezier(0.19, 1, 0.22, 1),
+    transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.menuItem:first-child {
+  border-top: 1px solid rgba(232, 234, 239, 0.1);
+}
+
+.menuPanelOpen .menuItem {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.menuNum {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: var(--accent);
+  flex: 0 0 auto;
+}
+
+.menuLabel {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: 0.06em;
+  color: var(--text);
+}
+
+.menuJp {
+  margin-left: auto;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: rgba(232, 234, 239, 0.5);
+}
+
+.menuContact .menuLabel {
+  color: var(--accent-light);
+}
+
 @media (max-width: 760px) {
   .navLinks {
+    display: none;
+  }
+  .menuBtn {
+    display: block;
+  }
+  .nav {
+    gap: 16px;
+  }
+  .contactLink {
+    padding: 9px 14px;
+  }
+}
+
+@media (max-width: 350px) {
+  .contactLink {
     display: none;
   }
 }

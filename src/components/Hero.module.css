@@ -29,6 +29,23 @@
   pointer-events: none;
 }
 
+/* 狭幅ではリード文の背面をほぼ塗り切り、ASCIIとの干渉を断つ */
+@media (max-width: 760px) {
+  .overlay {
+    background: linear-gradient(
+      to top,
+      rgba(8, 9, 13, 0.98) 0%,
+      rgba(8, 9, 13, 0.86) 30%,
+      rgba(8, 9, 13, 0.3) 55%,
+      rgba(8, 9, 13, 0.05) 75%
+    );
+  }
+  .label {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+  }
+}
+
 .content {
   position: relative;
   z-index: 2;
@@ -121,7 +138,7 @@
   font-family: var(--font-sans);
   font-size: 9px;
   letter-spacing: 0.34em;
-  color: rgba(232, 234, 239, 0.4);
+  color: rgba(232, 234, 239, 0.45);
   writing-mode: vertical-rl;
 }
 
@@ -131,4 +148,11 @@
   height: 52px;
   background: rgba(232, 234, 239, 0.4);
   animation: scrollCue 2.6s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+/* 狭幅では3行が折り返さないサイズに落とし、「THE」の孤立行を防ぐ */
+@media (max-width: 480px) {
+  .headline {
+    font-size: clamp(34px, 9.3vw, 44px);
+  }
 }

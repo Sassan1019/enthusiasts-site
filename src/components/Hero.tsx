@@ -67,7 +67,7 @@ export default function Hero() {
           </span>
         </h1>
         <div className={styles.bottomRow}>
-          <p className={styles.lead}>
+          <p className={`${styles.lead} jp-phrase`}>
             「きっかけの格差」によって埋もれてしまう才能を、仲間・戦略・ブランド・資本・コミュニティの力で社会に実装する。一人ひとりが、自分の人生の主人公として生きられる世界へ。
           </p>
           <div className={styles.scrollCueWrap}>

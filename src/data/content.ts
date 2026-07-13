@@ -41,6 +41,8 @@ export type Project = {
   name: string;
   jp: string;
   logo: string;
+  /** ロゴ原画の余白差を吸収し、プレート内の視覚的重量を揃える倍率 */
+  logoScale?: number;
   label: string;
   concept: string;
   body: string[];
@@ -65,6 +67,7 @@ export const projects: Project[] = [
     name: "ROUGH",
     jp: "ラフ／ランニング",
     logo: "/assets/proj-rough.jpg",
+    logoScale: 1.28,
     label: "RUNNING × SELF-LOVE",
     concept: "Run Your Life",
     body: [

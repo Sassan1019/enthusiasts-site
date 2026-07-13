@@ -13,3 +13,14 @@
   transform: translateY(0);
   filter: blur(0);
 }
+
+/* 低速GPUでの残像・遅延を避けるため、狭幅ではblurを使わない */
+@media (max-width: 760px) {
+  .reveal {
+    filter: none;
+    transform: translateY(24px);
+  }
+  .reveal.visible {
+    filter: none;
+  }
+}

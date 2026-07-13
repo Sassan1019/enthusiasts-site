@@ -24,9 +24,10 @@ export default function Members() {
                   <div className={styles.photoFrame}>
                     <Image
                       src={m.img}
-                      alt={m.nameEn}
+                      alt={`${m.nameJp}（${m.nameEn}）`}
                       width={640}
                       height={480}
+                      sizes="(max-width: 620px) 88vw, (max-width: 1240px) 44vw, 550px"
                       className={styles.photo}
                     />
                   </div>

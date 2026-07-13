@@ -137,14 +137,14 @@
   font-family: var(--font-sans);
   font-size: 9.5px;
   letter-spacing: 0.3em;
-  color: rgba(92, 130, 190, 0.85);
+  color: rgba(159, 194, 232, 0.85);
 }
 
 .captionEn {
   font-family: var(--font-sans);
   font-size: 9.5px;
   letter-spacing: 0.22em;
-  color: rgba(232, 234, 239, 0.32);
+  color: rgba(232, 234, 239, 0.5);
   text-align: right;
 }
 
