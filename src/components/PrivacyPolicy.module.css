@@ -146,7 +146,7 @@
 .dateLine {
   margin-top: clamp(40px, 5vw, 56px);
   font-size: 13px;
-  color: rgba(232, 234, 239, 0.4);
+  color: rgba(232, 234, 239, 0.5);
 }
 
 .footer {
@@ -176,5 +176,5 @@
   font-family: var(--font-sans);
   font-size: 10px;
   letter-spacing: 0.18em;
-  color: rgba(232, 234, 239, 0.3);
+  color: rgba(232, 234, 239, 0.45);
 }

@@ -16,13 +16,15 @@ export default function Home() {
       <GrainOverlay />
       <ScrollProgress />
       <Header />
-      <Hero />
-      <About />
-      <Vision />
-      <Projects />
-      <Members />
-      <Bridge />
-      <Contact />
+      <main id="main">
+        <Hero />
+        <About />
+        <Vision />
+        <Projects />
+        <Members />
+        <Bridge />
+        <Contact />
+      </main>
       <Footer />
     </div>
   );

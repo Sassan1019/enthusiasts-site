@@ -41,6 +41,8 @@ export type Project = {
   name: string;
   jp: string;
   logo: string;
+  /** ロゴ原画の余白差を吸収し、プレート内の視覚的重量を揃える倍率 */
+  logoScale?: number;
   label: string;
   concept: string;
   body: string[];
@@ -65,6 +67,7 @@ export const projects: Project[] = [
     name: "ROUGH",
     jp: "ラフ／ランニング",
     logo: "/assets/proj-rough.jpg",
+    logoScale: 1.28,
     label: "RUNNING × SELF-LOVE",
     concept: "Run Your Life",
     body: [
@@ -122,7 +125,7 @@ export const members: Member[] = [
     nameJp: "當内 脩平",
     nameEn: "SHUHEI TOUCHI",
     role: "Impülse FOUNDER / ARTIST",
-    bio: "300人規模の音楽フェスイベント「STAR'Z DASH!!」を主宰。音楽を軸に、アーティスト・企業・学生が交差する熱狂の場をつくる。「Make Your Rock」を掲げ、若者の衝動が社会に消される前に、世界へ鳴らす表現へと変えている。",
+    bio: "学生による音楽フェス「STAR'Z DASH!!」を主宰。過去に2度、精神的な理由から学校を移籍した経験を持つ。音楽に救われた経験からアーティストを志すも、アーティストたちが抱えるさまざまな問題を目の当たりにし、「衝動をプロデュースする」を理念に、人々の挑戦をアシストする活動を始める。現在はプロジェクト「Impülse」を立ち上げ、「才能が埋もれない世界」を目指す。",
     img: "/assets/mem-21.png",
   },
 ];

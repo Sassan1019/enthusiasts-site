@@ -19,6 +19,29 @@
   white-space: nowrap;
 }
 
+/* 目次的フッター — 静かなウェイファインディングの最終地点 */
+.sitemap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 34px;
+  justify-content: center;
+  padding: 0 6vw clamp(40px, 6vw, 64px);
+}
+
+.sitemapLink {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  color: rgba(232, 234, 239, 0.55);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  padding: 6px 0;
+}
+
+.sitemapLink:hover {
+  color: var(--text);
+}
+
 .bar {
   border-top: 1px solid rgba(232, 234, 239, 0.08);
   padding: 38px 6vw;
@@ -33,39 +56,19 @@
   font-family: var(--font-sans);
   font-size: 11px;
   letter-spacing: 0.28em;
-  color: rgba(232, 234, 239, 0.45);
+  color: rgba(232, 234, 239, 0.55);
 }
 
 .tagline {
   font-family: var(--font-sans);
   font-size: 10.5px;
   letter-spacing: 0.14em;
-  color: rgba(232, 234, 239, 0.28);
-}
-
-.right {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px 28px;
-  align-items: center;
-}
-
-.privacyLink {
-  font-family: var(--font-sans);
-  font-size: 10px;
-  letter-spacing: 0.18em;
-  color: rgba(232, 234, 239, 0.45);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.privacyLink:hover {
-  color: var(--text);
+  color: rgba(232, 234, 239, 0.5);
 }
 
 .copyright {
   font-family: var(--font-sans);
   font-size: 10px;
   letter-spacing: 0.18em;
-  color: rgba(232, 234, 239, 0.3);
+  color: rgba(232, 234, 239, 0.45);
 }

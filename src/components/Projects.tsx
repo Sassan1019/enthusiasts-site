@@ -26,10 +26,16 @@ export default function Projects() {
                     <div className={styles.logoPlate}>
                       <Image
                         src={p.logo}
-                        alt={p.name}
+                        alt={`${p.name} ロゴ`}
                         width={400}
                         height={250}
+                        sizes="(max-width: 660px) 88vw, (max-width: 1240px) 38vw, 460px"
                         className={styles.logoImg}
+                        style={
+                          p.logoScale
+                            ? { width: `${58 * p.logoScale}%`, height: `${52 * p.logoScale}%` }
+                            : undefined
+                        }
                       />
                     </div>
                     <div className={styles.nameRow}>

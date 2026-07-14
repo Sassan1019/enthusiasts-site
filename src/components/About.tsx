@@ -14,7 +14,7 @@ export default function About() {
         />
 
         <Reveal>
-          <h2 className={styles.statement}>
+          <h2 className={`${styles.statement} jp-phrase`}>
             挑戦できるかどうかは、
             <br />
             才能ではなく、

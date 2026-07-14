@@ -43,7 +43,7 @@
   font-size: clamp(13px, 1.3vw, 14.5px);
   line-height: 2.4;
   letter-spacing: 0.06em;
-  color: rgba(232, 234, 239, 0.5);
+  color: rgba(232, 234, 239, 0.6);
   max-width: 560px;
   text-wrap: pretty;
 }

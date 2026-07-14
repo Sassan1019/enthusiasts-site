@@ -24,7 +24,7 @@ export default function Vision() {
                       <span className={styles.num}>{v.num}</span>
                       <span className={styles.numLine} />
                     </div>
-                    <h3 className={styles.blockTitle}>
+                    <h3 className={`${styles.blockTitle} jp-phrase`}>
                       {v.title}
                       {v.title2 && (
                         <>
@@ -43,6 +43,7 @@ export default function Vision() {
                           alt={v.title}
                           width={800}
                           height={600}
+                          sizes="(max-width: 660px) 88vw, (max-width: 1240px) 48vw, 600px"
                           className={styles.img}
                         />
                       </div>

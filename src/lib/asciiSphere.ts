@@ -54,13 +54,15 @@ export function startAsciiSphere(canvas: HTMLCanvasElement): () => void {
 
   let W = 0,
     H = 0,
-    dpr = 1;
+    dpr = 1,
+    narrow = false;
 
   const resize = () => {
     const r = canvas.getBoundingClientRect();
     dpr = Math.min(window.devicePixelRatio || 1, 1.5);
     W = Math.max(1, Math.round(r.width * dpr));
     H = Math.max(1, Math.round(r.height * dpr));
+    narrow = r.width < 680;
     canvas.width = W;
     canvas.height = H;
   };
@@ -103,8 +105,9 @@ export function startAsciiSphere(canvas: HTMLCanvasElement): () => void {
       ny = Math.ceil(H / ch);
     ox += (tx - ox) * 0.04;
     oy += (ty - oy) * 0.04;
-    const cx = W * 0.66 + ox * W * 0.018,
-      cy = H * 0.5 + oy * H * 0.024;
+    // 狭幅では球を上へ逃がし、下部のリード文と干渉させない
+    const cx = (narrow ? W * 0.6 : W * 0.66) + ox * W * 0.018,
+      cy = (narrow ? H * 0.38 : H * 0.5) + oy * H * 0.024;
     const R = Math.min(W, H) * 0.44;
     const cosA = Math.cos(a),
       sinA = Math.sin(a);

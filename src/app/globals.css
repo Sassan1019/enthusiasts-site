@@ -83,6 +83,30 @@ a:hover {
   outline-offset: 3px;
 }
 
+.skip-link {
+  position: fixed;
+  top: -100px;
+  left: 16px;
+  z-index: 100;
+  padding: 12px 20px;
+  background: var(--bg);
+  border: 1px solid rgba(159, 194, 232, 0.7);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus-visible {
+  top: 16px;
+}
+
+/* 日本語見出しの文節改行（対応ブラウザのみの上質化） */
+.jp-phrase {
+  word-break: auto-phrase;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
