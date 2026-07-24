@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 import styles from "./Header.module.css";
 
@@ -100,8 +101,20 @@ export default function Header() {
   return (
     <>
     <header className={`${styles.header} ${scrolled || menuOpen ? styles.scrolled : ""}`}>
-      <a href="#top" className={styles.logo} onClick={() => closeMenu(false)}>
-        ENTHUSIASTS
+      <a
+        href="#top"
+        className={styles.logo}
+        aria-label="ENTHUSIASTS — トップへ"
+        onClick={() => closeMenu(false)}
+      >
+        <Image
+          src="/assets/logo-enthusiasts.png"
+          alt="ENTHUSIASTS"
+          width={971}
+          height={91}
+          priority
+          className={styles.logoImg}
+        />
       </a>
       <nav className={styles.nav} aria-label="サイト内ナビゲーション">
         <div className={styles.navLinks}>

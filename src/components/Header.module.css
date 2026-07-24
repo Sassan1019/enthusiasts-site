@@ -29,14 +29,29 @@
 .logo {
   position: relative;
   z-index: 2;
-  font-family: var(--font-sans);
-  font-size: 15px;
-  letter-spacing: 0.18em;
-  color: var(--text);
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
   text-decoration: none;
-  font-weight: 800;
   white-space: nowrap;
   flex: 0 0 auto;
+}
+
+.logoImg {
+  height: 15px;
+  width: auto;
+  display: block;
+  transition: height 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.scrolled .logoImg {
+  height: 14px;
+}
+
+@media (max-width: 760px) {
+  .logoImg {
+    height: 13px;
+  }
 }
 
 .nav {

@@ -19,12 +19,16 @@
 }
 
 .headerLogo {
-  font-family: var(--font-sans);
-  font-weight: 800;
-  font-size: 16px;
-  letter-spacing: 0.16em;
-  color: var(--text);
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
   text-decoration: none;
+}
+
+.headerLogoImg {
+  height: 15px;
+  width: auto;
+  display: block;
 }
 
 .backLink {
