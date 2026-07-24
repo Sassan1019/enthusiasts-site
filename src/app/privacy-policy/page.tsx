@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { privacySections } from "@/data/content";
 import styles from "@/components/PrivacyPolicy.module.css";
 
@@ -11,8 +12,15 @@ export default function PrivacyPolicyPage() {
   return (
     <div className={styles.page}>
       <header className={styles.header}>
-        <Link href="/" className={styles.headerLogo}>
-          ENTHUSIASTS
+        <Link href="/" className={styles.headerLogo} aria-label="ENTHUSIASTS — トップへ">
+          <Image
+            src="/assets/logo-enthusiasts.png"
+            alt="ENTHUSIASTS"
+            width={971}
+            height={91}
+            priority
+            className={styles.headerLogoImg}
+          />
         </Link>
         <Link href="/" className={styles.backLink}>
           ← BACK TO HOME
